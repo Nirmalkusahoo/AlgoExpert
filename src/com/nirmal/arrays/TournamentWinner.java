@@ -5,34 +5,30 @@ import java.util.*;
 public class TournamentWinner {
     public static String tournamentWinner(
             ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) {
-        Map<String, Integer> count = new HashMap<String, Integer>();
+        HashMap<String, Integer> count = new HashMap<String, Integer>();
+        String currentBestTeam = "";
+        count.put(currentBestTeam, 0);
 
-        for (int i = 0; i < results.size(); i++) {
-            if (results.get(i) == 0) {
-                String lang = competitions.get(i).get(1);
-                if (count.get(lang) != null) {
-                    count.put(lang, count.get(lang) + 1);
-                } else {
-                    count.put(lang, 1);
-                }
-            } else {
-                String lang = competitions.get(i).get(0);
-                if (count.get(lang) != null) {
-                    count.put(lang, count.get(lang) + 1);
-                } else {
-                    count.put(lang, 1);
-                }
+        for (int i = 0; i < competitions.size(); i++) {
+            String homeTeam = competitions.get(i).get(0);
+            String awayTeam = competitions.get(i).get(1);
+            String winingTeam = results.get(i) == 1 ? homeTeam : awayTeam;
+
+            updateScores(winingTeam, 3, count);
+
+            if (count.get(winingTeam) > count.get(currentBestTeam)) {
+                currentBestTeam = winingTeam;
             }
+
         }
-        String winner = null;
-        for (String key : count.keySet()) {
-            if (winner == null) {
-                winner = key;
-            } else if (count.get(key) > count.get(winner)) {
-                winner = key;
-            }
+        return currentBestTeam;
+    }
+
+    public static void updateScores(String winingTeam, int score, HashMap<String, Integer> count) {
+        if (!count.containsKey(winingTeam)) {
+            count.put(winingTeam, 0);
         }
-        return winner;
+        count.put(winingTeam, count.get(winingTeam) + score);
     }
 
     public static void main(String[] args) {
