@@ -1,4 +1,4 @@
-package com.nirmal.arrays;
+package com.nirmal.algoExpert.arrays;
 
 import java.util.*;
 

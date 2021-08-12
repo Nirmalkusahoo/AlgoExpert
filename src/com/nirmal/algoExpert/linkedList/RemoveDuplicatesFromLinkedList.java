@@ -1,4 +1,4 @@
-package com.nirmal.linkedList;
+package com.nirmal.algoExpert.linkedList;
 
 public class RemoveDuplicatesFromLinkedList {
 

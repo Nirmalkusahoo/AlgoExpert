@@ -1,3 +1,5 @@
+package com.nirmal.algoExpert.arrays;
+
 import java.util.Arrays;
 
 public class SortedSquaredArray {
@@ -35,7 +37,7 @@ public class SortedSquaredArray {
     }
 
     public static void main(String[] args) {
-//        System.out.println(Arrays.toString(SortedSquaredArray.sortedSquaredArray(new int[]{1,2,3,5})));
+//        System.out.println(Arrays.toString(com.nirmal.algoExpert.arrays.SortedSquaredArray.sortedSquaredArray(new int[]{1,2,3,5})));
         System.out.println(Arrays.toString(SortedSquaredArray.sortedSquaredArray(new int[]{-2, 1, 5})));
     }
 }
