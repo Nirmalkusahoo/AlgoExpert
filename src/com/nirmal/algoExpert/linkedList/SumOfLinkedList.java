@@ -10,7 +10,7 @@ public class SumOfLinkedList {
         }
     }
         //Solution 2:
-        public LinkedList sumOfLinkedLists(LinkedList linkedListOne, LinkedList linkedListTwo) {
+        public static LinkedList sumOfLinkedLists(LinkedList linkedListOne, LinkedList linkedListTwo) {
             // Write your code here.
             LinkedList head=new LinkedList(0);
             LinkedList currentNode=head;
