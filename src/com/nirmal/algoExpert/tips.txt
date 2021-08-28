@@ -1,0 +1,3 @@
+1. Don't overcomplicate the logic by thinking too much.
+2. Just because you know recursion that doesn't mean you will try to solve the problem with recursion always.
+    if you are beginner try to solve in normal way then go for recursion if it optimises it.
