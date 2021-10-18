@@ -1,6 +1,7 @@
 package com.nirmal.general;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class Graph {
     public LinkedList<Integer>[] list;
@@ -35,12 +36,32 @@ public class Graph {
         return sb.toString();
     }
 
+    public void breadthFirstSearch(int s){
+        boolean[] visited=new boolean[V];
+        Queue<Integer> q= new LinkedList<>();
+        q.offer(s);
+        visited[s]=true;
+        while(!q.isEmpty()){
+            int value=q.poll();
+            System.out.print(value+ "  ");
+            for(int adjacentNode:list[value]){
+                if(!visited[adjacentNode]){
+                    q.offer(adjacentNode);
+                    visited[adjacentNode]= true;
+                }
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
-        Graph graph=new Graph(4);
+        Graph graph=new Graph(5);
         graph.addEdge(0,1);
         graph.addEdge(1,2);
         graph.addEdge(2,3);
         graph.addEdge(3,0);
+        graph.addEdge(2,4);
         System.out.println(graph);
+        graph.breadthFirstSearch(0);
     }
 }
