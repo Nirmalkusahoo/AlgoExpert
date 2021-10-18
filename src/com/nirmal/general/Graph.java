@@ -2,6 +2,7 @@ package com.nirmal.general;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Graph {
     public LinkedList<Integer>[] list;
@@ -54,6 +55,43 @@ public class Graph {
 
     }
 
+    public void depthFirstSearch(int s){
+        boolean[] visited=new boolean[V];
+        Stack<Integer> stack= new Stack<>();
+        stack.push(s);
+        while (!stack.isEmpty()){
+            int u=stack.pop();
+            if(!visited[u]){
+                visited[u]= true;
+                System.out.print(u+" ");
+                for(int v:list[u]){
+                    if(!visited[v]){
+                        stack.push(v);
+                    }
+                }
+            }
+        }
+
+    }
+
+    public void depthFirstSearchRecursive() {
+        boolean[] visited=new boolean[V];
+        for(int v=0;v<V;v++){
+            if(!visited[v]){
+                dfs(v,visited);
+            }
+        }
+    }
+
+    public void dfs(int v,boolean[] visited){
+        visited[v]=true;
+        System.out.print(v+" ");
+        for(int w:list[v]){
+            if(!visited[w]){
+                dfs(w,visited);
+            }
+        }
+    }
     public static void main(String[] args) {
         Graph graph=new Graph(5);
         graph.addEdge(0,1);
@@ -63,5 +101,8 @@ public class Graph {
         graph.addEdge(2,4);
         System.out.println(graph);
         graph.breadthFirstSearch(0);
+        graph.depthFirstSearch(0);
+        System.out.println("\n");
+        graph.depthFirstSearchRecursive();
     }
 }
