@@ -50,6 +50,43 @@ public class BinarySearchTree {
             return search(key,root.right);
         }
     }
+
+    public void remove(int key){
+        remove(key,root,null);
+    }
+    public void remove(int key, Tree root,Tree parentNode){
+        Tree currentNode=root;
+
+        while(currentNode !=null){
+            if(key<currentNode.value){
+                parentNode=currentNode;
+                currentNode=currentNode.left;
+            } else if(key> currentNode.value){
+                parentNode=currentNode;
+                currentNode=currentNode.right;
+            } else {
+                if(currentNode.left !=null && currentNode.right !=null){
+                    currentNode.value=getMinValue(currentNode.right);
+                    remove(currentNode.value,currentNode.right,null);
+                }
+                if(parentNode.left.value==key){
+                    currentNode=null;
+                    parentNode.left=null;
+                } else {
+                    currentNode=null;
+                    parentNode.right=null;
+                }
+            }
+        }
+    }
+
+    public int getMinValue(Tree root){
+        if(root.left==null){
+            return root.value;
+        } else {
+            return getMinValue(root.left);
+        }
+    }
     public static class Tree {
         int value;
         Tree left;
@@ -61,21 +98,28 @@ public class BinarySearchTree {
     }
 
     public static void main(String[] args) {
-        BinarySearchTree binarySearchTree = new BinarySearchTree();
-        binarySearchTree.insert(5);
-        binarySearchTree.insert(3);
-        binarySearchTree.insert(7);
-        binarySearchTree.insert(1);
-        binarySearchTree.inOrder();
+        BinarySearchTree bst = new BinarySearchTree();
+        bst.insert(5);
+        bst.insert(3);
+        bst.insert(7);
+        bst.insert(1);
+        bst.insert(6);
+        bst.insert(8);
+        bst.inOrder();
 
-        if(binarySearchTree.search(1) !=null){
+       /* if(binarySearchTree.search(1) !=null){
             System.out.println();
             System.out.println("Key found");
         }
         if(binarySearchTree.search(10) !=null){
             System.out.println("Key Found");
         } else {
-            System.out.println("Key not found");
-        }
+            Sys
+            tem.out.println("Key not found");
+        }*/
+        System.out.println("After removing ");
+//        bst.remove(7);
+        bst.remove(5);
+        bst.inOrder();
     }
 }
