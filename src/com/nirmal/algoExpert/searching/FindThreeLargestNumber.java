@@ -1,4 +1,4 @@
-package com.nirmal.algoExpert.search;
+package com.nirmal.algoExpert.searching;
 
 import java.util.Arrays;
 
