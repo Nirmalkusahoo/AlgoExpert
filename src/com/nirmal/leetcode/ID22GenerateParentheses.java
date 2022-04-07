@@ -10,16 +10,18 @@ public class ID22GenerateParentheses {
         return list;
     }
 
-    public static void backTrack(List<String> list, String string, int open, int close, int max) {
-
+    public static void backTrack(List<String> list, String str, int open, int close, int max) {
         if (open == max && close == max) {
-            list.add(string);
+            list.add(str);
+            return;
         }
         if (open < max) {
-            backTrack(list, string + "(", open + 1, close, max);
+            backTrack(list, str + "(", open + 1, close, max);
         }
         if (close < open) {
-            backTrack(list, string + ")", open, close + 1, max);
+            backTrack(list, str + ")", open, close + 1, max);
         }
     }
+
+
 }

@@ -1,49 +1,79 @@
 package com.nirmal.algoExpert;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Practise {
-    public static class BinaryTree {
-        int value;
-        BinaryTree left;
-        BinaryTree right;
 
-        BinaryTree(int value) {
-            this.value = value;
-        }
-    }
+    public static class MinHeap {
+        List<Integer> heap = new ArrayList<>();
 
-    public static String longestPalindromicSubstring(String str) {
-        // Write your code here.
-        int[] longest = new int[]{0, 0};
-        for (int i = 1; i < str.length(); i++) {
-            int[] odd = findLongest(str, i - 1, i + 1);
-            int[] even = findLongest(str, i - 1, i);
-            int[] current = odd[1] - odd[0] > even[1] - even[0] ? odd : even;
-            longest = longest[1] - longest[0] > current[1] - current[0] ? longest : current;
-        }
-
-        return str.substring(longest[0], longest[1]);
-    }
-
-    public static int[] findLongest(String str, int left, int right) {
-        while (left >= 0 && right < str.length()) {
-            if (str.charAt(left) != str.charAt(right)) {
-                break;
+        public static List<Integer> buildHeap(List<Integer> array) {
+            int firstParentIdx = (array.size() - 2) / 2;
+            for (int currentIndex = firstParentIdx; currentIndex >= 0; currentIndex--) {
+                shiftDown(currentIndex, array.size() - 1, array);
             }
-            left--;
-            right++;
+            return array;
         }
-        return new int[]{left++, right};
 
+        public static void shiftDown(int currentIdx, int endIdx, List<Integer> heap) {
+            int childOneIdx = currentIdx * 2 + 1;
+            while (childOneIdx <= endIdx) {
+                int childTwoIdx = currentIdx * 2 + 2 <= endIdx ? currentIdx * 2 + 2 : -1;
+                int idxToSwap;
+                if (childTwoIdx != -1 && heap.get(childTwoIdx) < heap.get(childOneIdx)) {
+                    idxToSwap = childTwoIdx;
+                } else {
+                    idxToSwap = childOneIdx;
+                }
+                if (heap.get(currentIdx) > heap.get(idxToSwap)) {
+                    swap(currentIdx, idxToSwap, heap);
+                    currentIdx = idxToSwap;
+                    childOneIdx = 2 * currentIdx + 1;
+                } else {
+                    return;
+                }
+            }
+        }
+
+        public static void shiftUp(int currentIdx, List<Integer> heap) {
+            int parentIdx = (currentIdx - 1) / 2;
+
+            while (parentIdx > 0 && heap.get(parentIdx) > heap.get(currentIdx)) {
+                swap(parentIdx, currentIdx, heap);
+                currentIdx = parentIdx;
+                parentIdx = (currentIdx - 1) / 2;
+            }
+        }
+
+        public int peak() {
+            return heap.get(0);
+        }
+
+        public int remove() {
+            swap(0, heap.size() - 1, heap);
+            int numberToRemove = heap.get(heap.size() - 1);
+            heap.remove(heap.size() - 1);
+            shiftDown(0, heap.size() - 1, heap);
+            return numberToRemove;
+        }
+
+        public void insert(int value) {
+            heap.add(value);
+            shiftUp(heap.size() - 1, heap);
+        }
+
+        public static void swap(int currentIdx, int endIdx, List<Integer> heap) {
+            Integer temp = heap.get(currentIdx);
+            heap.set(currentIdx, heap.get(endIdx));
+            heap.set(endIdx, temp);
+        }
     }
+
 
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree(1);
-        BinaryTree left = new BinaryTree(2);
-        BinaryTree right = new BinaryTree(3);
-        tree.left = left;
-        tree.right = right;
 
-        System.out.println();
+        System.out.println(sunsetViews(new int[]{3, 5, 4, 4, 3, 1, 3, 2}, "EAST"));
     }
 }
