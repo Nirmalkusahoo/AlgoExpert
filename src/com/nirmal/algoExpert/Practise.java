@@ -83,5 +83,7 @@ public class Practise {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(48, 12, 24, 7, 8, -5, 24, 391, 24, 56, 2, 6, 8, 41);
         System.out.println(new MinHeap(list));
+
+        System.out.println(9%3);
     }
 }
