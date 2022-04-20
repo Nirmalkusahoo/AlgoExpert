@@ -18,6 +18,12 @@
     * again if current<prev then last=current
     * then at the end swap first and last OR first and middle
 
+- [x] [844. Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/) ➡ [Reference](https://www.youtube.com/watch?v=vgog1EuEJYQ)
+  * two solution are there  1. using stack with O(M+N) space , 2.using while loop with O(1)
+  * iterate over string ->toCharArray() -> if !='#' insert into stack else stack.pop()
+  * at the end compare two stacks ->if equals return true;
+  * In Second approach create two pointers from end of strings and check
+
 - [x] [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) ➡ [Reference](https://www.youtube.com/watch?v=-1jxt_DPl48)
   * its a game of max heap,add all stones maxheap(in java new PriorityQueue<>(Comparator.reverseOrder()))
   * Run a while loop till heap size>1 , fetch top two weights and if both weight are not equal then add difference to heap
