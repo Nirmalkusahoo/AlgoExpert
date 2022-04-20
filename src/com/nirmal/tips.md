@@ -17,5 +17,9 @@
     * if yes- then store in first=prev and middle=current and cont. 
     * again if current<prev then last=current
     * then at the end swap first and last OR first and middle
-  
+
+- [x] [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) ➡ [Reference](https://www.youtube.com/watch?v=-1jxt_DPl48)
+  * its a game of max heap,add all stones maxheap(in java new PriorityQueue<>(Comparator.reverseOrder()))
+  * Run a while loop till heap size>1 , fetch top two weights and if both weight are not equal then add difference to heap
+  * if heap.isEmpty() return 0 , else return heap.remove()
 
