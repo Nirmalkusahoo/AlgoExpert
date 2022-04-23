@@ -7,7 +7,7 @@
   
 - [x] [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/) ➡ [Reference](https://www.youtube.com/watch?v=dlATMslQ6Uc)
   * create a map <Character,Integer> and put all roman char and respective numbers as value.
-  * iterate the input strings from last char and check id number for charAt(i) > number for charAt(i+1)
+  * iterate the input strings from last char and check id number for charAt(i) < number for charAt(i+1)
   * then subtract  charAt(i) number from result else add charAt(i) + result number
 
 - [x] [99.RecoverBinarySearchTree](https://leetcode.com/problems/recover-binary-search-tree/) ➡ [Reference](https://www.youtube.com/watch?v=ZWGW7FminDM)
@@ -29,3 +29,12 @@
   * Run a while loop till heap size>1 , fetch top two weights and if both weight are not equal then add difference to heap
   * if heap.isEmpty() return 0 , else return heap.remove()
 
+### AlgoExpert
+- ####Array 
+- [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
+  * Create a map and store all number with boolean true map.put(num,true)
+  * Iterate through num array and check if num is not visited then assign currentLength=1
+  * then left=num-1 and right=num+1
+  * in while loop check if right is present in map then currentLength++ and do same for right
+  * update the if currentLength> largest then update int[] bestRange={left+1 , right-1}
+  
