@@ -35,6 +35,13 @@
   * Create a map and store all number with boolean true map.put(num,true)
   * Iterate through num array and check if num is not visited then assign currentLength=1
   * then left=num-1 and right=num+1
-  * in while loop check if right is present in map then currentLength++ and do same for right
+  * in while loop check if left is present in map then currentLength++; map.put(left,false); left-- and do same for right
   * update the if currentLength> largest then update int[] bestRange={left+1 , right-1}
+
+- [x] [Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
+  * create rewards array with value 1 in all. Array.fill(rewards,1).
+  * in for (int i=1;i<len-1;i++) if(arr[i]>arr[i-1]) then rewards[i]=rewards[i-1]+1
+  * in second for loop need to iterate in reverse
+  * for(int i=len-2;i>=0;i--) if(arr[i]>arr[i+1]) rewards[i]= Math.max(arr[i],arr[i+1]+1)
+  * and next return sum of rewards array
   
