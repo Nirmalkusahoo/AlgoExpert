@@ -63,6 +63,10 @@
       smallerIdx++
     * else arr[i]=valueAtLIndex * valueAtLIndex; largerIdx--;
 
+- [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
+  ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
+    * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
+
 ### AlgoExpert
 
 - #### Array
@@ -85,4 +89,12 @@
     * Sort coin array. int totalChangeCreated=0
     * for(int coin:coins) if(coin>totalChangeCrated +1) then return totalChangeCreated +1
     * else totalChangeCreated=totalChangeCreated+coin;
+
+- [x] [Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
+    * i=1; while(i<arr.length-1) if(array[i - 1] < array[i] && array[i] > array[i + 1]) booelan isPeak=true;
+    * if(!isPeak)= i++ ;continue
+    * left=i-2; right=i+2; while(left >= 0 && array[left] < array[left + 1)   left=left-1; similarly for while( right <
+      array.length && array[right - 1] < array[right])
+    * int currenLength=right-left-1 and compare with maxLength and store. new i=right and after intital while loop
+      return maxLength;
   
