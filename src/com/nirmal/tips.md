@@ -97,4 +97,30 @@
       array.length && array[right - 1] < array[right])
     * int currenLength=right-left-1 and compare with maxLength and store. new i=right and after intital while loop
       return maxLength;
+
+- [x] [Merge Overlapping Intervals](https://www.algoexpert.io/questions/Merge%20Overlapping%20Intervals)
+    * create List<int[]> merged; int[]currentInterval=intervals[0]; merged.add(currentInterval)
+    * iterate in intervals ; for(int[] nextInterval:intervals) if(currentEnd>nextStart) then currentEnd=Math.max(
+      currentEnd,nextEnd)
+    * else merged.add(nextInterval); currentInterval=nextInterval;
+
+    - [x] [Four Number Sum](https://www.algoexpert.io/questions/Four%20Number%20Sum)
+        * create Map<Integer,List<Integer[]> and List<Integer[]> fourNumberSum
+        * two for loop inside one for parent for loop
+      ```
+      for (int i = 1; i < array.length - 1; i++) {
+              for (int j = i+1; j < array.length; j++) {
+                  int currentSum = array[i] + array[j]; int diff = targetSum - currentSum;
+                  if (allPairSum.containsKey(diff)) {
+                      for (Integer[] pair : allPairSum.get(diff)) {
+                          Integer[] fourSum = {pair[0], pair[1], array[i], array[j]}; fourSumList.add(fourSum);
+              } }}
   
+              for (int k = 0; k < i; k++) {
+                  int currentSum = array[i] + array[k]; Integer[] pair = {array[i], array[k]};
+                  if (!allPairSum.containsKey(currentSum)) {
+                      List<Integer[]> pairGroup = new ArrayList<>(); pairGroup.add(pair); allPairSum.put(currentSum, pairGroup);
+                  } else  { allPairSum.get(currentSum).add(pair) };
+              }
+          }
+   
