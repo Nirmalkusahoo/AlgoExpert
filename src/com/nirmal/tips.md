@@ -2,7 +2,7 @@
 
 - [x] [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
   ➡ [Reference](https://www.youtube.com/watch?v=f_F9ItFyiEg)
-    * create num array and add all numbers respective to roman string to it(add 10 for X)
+    * create num array and add all numbers respective to roman string to it(add 10 for X) in ascending order
     * Create String array and all roman strings . Note both int arrat and string array should be in descending order
     * iterate through num array and in while loop check if input number >= numArray[i] then add stringArray[i] to
       stringBuilder
@@ -25,52 +25,16 @@
 - [x] [135. Candy](https://leetcode.com/problems/candy/)
   ➡ [Reference](https://www.algoexpert.io/questions/Min%20Rewards)
     * Same as [Algo expert - Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
-
-
-- [x] [844. Backspace String Compare](https://leetcode.com/problems/backspace-string-compare/)
-  ➡ [Reference](https://www.youtube.com/watch?v=vgog1EuEJYQ)
-    * two solution are there 1. using stack with O(M+N) space , 2.using while loop with O(1)
-    * iterate over string ->toCharArray() -> if !='#' insert into stack else stack.pop()
-    * at the end compare two stacks ->if equals return true;
-    * In Second approach create two pointers from end of strings and check
-
-- [x] [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)
-  ➡ [Reference](https://www.youtube.com/watch?v=-1jxt_DPl48)
-    * its a game of max heap,add all stones maxheap(in java new PriorityQueue<>(Comparator.reverseOrder()))
-    * Run a while loop till heap size>1 , fetch top two weights and if both weight are not equal then add difference to
-      heap
-    * if heap.isEmpty() return 0 , else return heap.remove()
-
-- [x] [392. Is Subsequence](https://leetcode.com/problems/is-subsequence/)
-  ➡ [Reference](https://www.youtube.com/watch?v=vgog1EuEJYQ)
-    * Same as [Algo expert - Validate Subsequence](https://www.algoexpert.io/questions/Validate%20Subsequence)
-    * in while  (sequenceIdx<sequence.size() && arrIdx < array.size()
-    * if (sequence.get(seqIdx) == array.get(arrIdx)) then seqIdx++
-    * arrIdx++; at the end return seqIdx==sequence.size();
-
-- [x] [792. Number of Matching Subsequences](https://leetcode.com/problems/number-of-matching-subsequences/)
-    * to params given 1. String[] words and 2. String match
-    * for(String word:words) check if word.IsSubsequecne.OF(match) the count ++
-    * to check word is subsequence of match for(char c:word.toCharArray) int index= match.indexOf(c);
-    * if(index==-1) return false else index= index+1; and at the end return true
-
-- [x] [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
-  ➡ [Reference](https://www.algoexpert.io/questions/Sorted%20Squared%20Array)
-    * Same as [Algo expert - Sorted Squared Array](https://www.algoexpert.io/questions/Sorted%20Squared%20Array)
-    * tricky parts is when array is [-9,2,4,6]. so two with pointers it can be solved. int
-      smallerIdx=0,largerIdx=length-1
-    * for(int i=length-1;i>=0;i--) if(valueAtSIndex > valueAtLIndex) then result[i]=valueAtSIndex * valueAtSIndex ;
-      smallerIdx++
-    * else arr[i]=valueAtLIndex * valueAtLIndex; largerIdx--;
+    
 
 - [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
   ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
     * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
 
 - [x] [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
-  * Its basically search-> So that leeds to binary search
-  * do binary search and if match found return middle 
-  * else at the end of while loop return L
+    * Its basically search-> So that leeds to binary search
+    * do binary search and if match found return middle
+    * else at the end of while loop return L
 
 ### AlgoExpert
 
@@ -128,4 +92,23 @@
               } else  { allPairSum.get(currentSum).add(pair) };
           }
       }
-   
+
+- [x] [Zigzag Traverse](https://www.algoexpert.io/questions/Zigzag%20Traverse)
+    * first find the row and col value at which direction is changing
+    * while(row and col values are in boundry)
+    * while going up col==0 || row==maxRow; again if(row==maxRow) col++ else row++;
+    * while goingDown row==0 || col=== maxCol ; again if(col==maxCol) row++ else col++
+    * Also you need boolean isGoingDown=true and need to update
+
+- [x] [Smallest Difference](https://www.algoexpert.io/questions/Smallest%20Difference)
+    * it can be solved by sorting two array and having two pointer for two array and increase pointer for smallest array
+      element
+    * Post sorting run while loop till pointer1<arrOne.length && pointer2<arrTwo.length
+    * firstNum = arrOne[pointer1]  ,secondNum=arrTwo[pointer2]  whichever array element is smaller increase its pointer.
+    * if currentDiff<diff then diff=currentDiff and int[] pair={firstNum, secondNum}
+
+- [x] [Move Element To End](https://www.algoexpert.io/questions/Move%20Element%20To%20End)
+  * Can be done with two pointer L ,R while(L<R);
+  * in nested while(L<R && array.get(R) == elementToBeMoved) R--;
+  * then if(array.get(L) == toMove) swap (L,R) and L++;
+  
