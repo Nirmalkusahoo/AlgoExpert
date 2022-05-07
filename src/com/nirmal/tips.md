@@ -3,7 +3,7 @@
 - [x] [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
   ➡ [Reference](https://www.youtube.com/watch?v=f_F9ItFyiEg)
     * create num array and add all numbers respective to roman string to it(add 10 for X) in ascending order
-    * Create String array and all roman strings . Note both int arrat and string array should be in descending order
+    * Create String array and all roman strings . Note both int array and string array should be in descending order
     * iterate through num array and in while loop check if input number >= numArray[i] then add stringArray[i] to
       stringBuilder
     * and make num=num-numArray[i]
@@ -14,27 +14,15 @@
     * iterate the input strings from last char and check id number for charAt(i) < number for charAt(i+1)
     * then subtract charAt(i) number from result else add charAt(i) + result number
 
-- [x] [99.RecoverBinarySearchTree](https://leetcode.com/problems/recover-binary-search-tree/)
-  ➡ [Reference](https://www.youtube.com/watch?v=ZWGW7FminDM)
-    * four variables prev=Integer.MIN_VALUE,first=middle=last=null
-    * if adjacent node then fist and middle , if distance node then first and last
-    * Do inorder ,while doing find if current is smaller than prev
-    * if yes- then store in first=prev and middle=current and cont.
-    * again if current<prev then last=current
-    * then at the end swap first and last OR first and middle
+
 - [x] [135. Candy](https://leetcode.com/problems/candy/)
   ➡ [Reference](https://www.algoexpert.io/questions/Min%20Rewards)
     * Same as [Algo expert - Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
-    
+
 
 - [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
   ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
     * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
-
-- [x] [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
-    * Its basically search-> So that leeds to binary search
-    * do binary search and if match found return middle
-    * else at the end of while loop return L
 
 ### AlgoExpert
 
@@ -108,7 +96,15 @@
     * if currentDiff<diff then diff=currentDiff and int[] pair={firstNum, secondNum}
 
 - [x] [Move Element To End](https://www.algoexpert.io/questions/Move%20Element%20To%20End)
-  * Can be done with two pointer L ,R while(L<R);
-  * in nested while(L<R && array.get(R) == elementToBeMoved) R--;
-  * then if(array.get(L) == toMove) swap (L,R) and L++;
+    * Can be done with two pointer L ,R while(L<R);
+    * in nested while(L<R && array.get(R) == elementToBeMoved) R--;
+    * then if(array.get(L) == toMove) swap (L,R) and L++;
+
+- [x] [Monotonic Array](https://www.algoexpert.io/questions/Monotonic%20Array)
+    * With two boolean variable isIncreasingOrder=true , isInDecreasingOrder=true it can be done
+    * Either arr[i]< arr[i+1] always(then isInDecreasingOrder=false;) OR arr[i]> arr[i+1] always (then
+      isIncreasingOrder=false)
+    * and return isIncreasingOrder || isInDecreasingOrder;
+  
+
   

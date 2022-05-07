@@ -33,3 +33,17 @@
     * for(int i=length-1;i>=0;i--) if(Math.abs(valueAtSIndex) > valueAtLIndex) then result[i]=valueAtSIndex * valueAtSIndex ;
       smallerIdx++
     * else arr[i]=valueAtLIndex * valueAtLIndex; largerIdx--;
+
+- [x] [99.RecoverBinarySearchTree](https://leetcode.com/problems/recover-binary-search-tree/)
+  ➡ [Reference](https://www.youtube.com/watch?v=ZWGW7FminDM)
+  * four variables prev=Integer.MIN_VALUE,first=middle=last=null
+  * if adjacent node then fist and middle , if distance node then first and last
+  * Do inorder ,while doing find if current is smaller than prev
+  * if yes- then store in first=prev and middle=current and cont.
+  * again if current<prev then last=current
+  * then at the end swap first and last OR first and middle
+
+- [x] [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)
+  * Its basically search-> So that leeds to binary search
+  * do binary search and if match found return middle
+  * else at the end of while loop return L
