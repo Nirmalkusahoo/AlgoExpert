@@ -47,3 +47,11 @@
   * Its basically search-> So that leeds to binary search
   * do binary search and if match found return middle
   * else at the end of while loop return L
+
+- [x] [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
+  ➡ [Reference](https://www.youtube.com/watch?v=f_F9ItFyiEg)
+  * create num array and add all numbers respective to roman string to it(add 10 for X) in ascending order
+  * Create String array and all roman strings . Note both int array and string array should be in descending order
+  * iterate through num array and in while loop check if input number >= numArray[i] then add stringArray[i] to
+    stringBuilder
+  * and make num=num-numArray[i]

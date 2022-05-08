@@ -1,13 +1,5 @@
 ## All Program solutions in Brief
 
-- [x] [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/)
-  ➡ [Reference](https://www.youtube.com/watch?v=f_F9ItFyiEg)
-    * create num array and add all numbers respective to roman string to it(add 10 for X) in ascending order
-    * Create String array and all roman strings . Note both int array and string array should be in descending order
-    * iterate through num array and in while loop check if input number >= numArray[i] then add stringArray[i] to
-      stringBuilder
-    * and make num=num-numArray[i]
-
 - [x] [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
   ➡ [Reference](https://www.youtube.com/watch?v=dlATMslQ6Uc)
     * create a map <Character,Integer> and put all roman char and respective numbers as value.
@@ -23,6 +15,18 @@
 - [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
   ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
     * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
+
+- [x] [456. 132 Pattern](https://leetcode.com/problems/132-pattern/)
+  ➡ [Reference](https://leetcode.com/problems/132-pattern/solution/)
+    * create a min array by using condition min[i]= Math.min(nums[i],min[i-1])
+    * Solution is based on mono stack(elements are stored in ascending order from top to bottom).
+  ``` for (int j = nums.length - 1; j >= 0; j--) {
+      while (!stack.isEmpty() && nums[j] > stack.peek()) {
+      if (stack.peek() > min[j])  return true;
+      stack.pop();
+      }
+      stack.push(nums[j]);
+      
 
 ### AlgoExpert
 
@@ -105,6 +109,41 @@
     * Either arr[i]< arr[i+1] always(then isInDecreasingOrder=false;) OR arr[i]> arr[i+1] always (then
       isIncreasingOrder=false)
     * and return isIncreasingOrder || isInDecreasingOrder;
+
+- [x] [Calendar Matching](https://www.algoexpert.io/questions/Calendar%20Matching)
+    * This problem looks like huge code ,but logically its very simple. You need two type of objects
+    * StringMeeting(String start; String end) and Meeting { int start; int end}
+    * First append daily bounds to respective calendar. ["0:00", dailyBound.start], [dailyBound.end, "23.59"] and
+      convert StringMeeting to Meeting
+    * Then mergeCalender
+  ```while (i < calender1.size() && j < calender2.size()) {
+      Meeting meeting1 = calender1.get(i);Meeting meeting2 = calender2.get(j);
+      if (meeting1.start < meeting2.start) { merged.add(meeting1); i++;
+      } else {merged.add(meeting2);j++;}}
+  ```
+    * Then flattenCalender
+  ```flattenedCalender.add(calender.get(0));
+        for (int i = 1; i < calender.size(); i++) {
+            Meeting previousMeeting = flattenedCalender.get(flattenedCalender.size() - 1); Meeting currentMeeting = calender.get(i);
+            if (previousMeeting.end > currentMeeting.start) {
+                Meeting newPreviousMeeting = new Meeting(previousMeeting.start, Math.max(previousMeeting.end, currentMeeting.end));
+                flattenedCalender.set(flattenedCalender.size() - 1, newPreviousMeeting);
+            } else { flattenedCalender.add(currentMeeting);}}
+  ```
+    * Then getAvailabilities(flattenedCalender, meetingDuration)
+  ```for (int i = 1; i < meetings.size(); i++) {
+            int start = meetings.get(i - 1).end;  int end = meetings.get(i).start;
+            int difference = end - start;
+            if (difference >= meetingDuration) { availableTimes.add(new StringMeeting(minutesToTime(start), minutesToTime(end)));}} 
+  ```
+  * minutesToTime method will be 
+  ```
+      int hour = time / 60; int min = time % 60;
+      String hoursToString = Integer.toString(hour);
+      String minToString = min < 10 ? "0" + Integer.toString(min) : Integer.toString(min);
+      return hoursToString + ":" + minToString;
+  ```
+  
   
 
   
