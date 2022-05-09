@@ -19,7 +19,28 @@
       stack.pop();
       }
       stack.push(nums[j]);
-      
+
+
+- [x] [1470. Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
+    * its game of two pointer
+    * first pointer 2*i and second 2*i + 1
+  ```
+  for (int i = 0; i < n; i++) {
+            result[2 * i] = nums[i];
+            result[2 * i + 1] = nums[i + n];
+        }
+  ```
+  
+- [x] [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
+  ➡ [Reference](https://www.youtube.com/watch?v=GSJuwQzKSnI)
+  * You have two pointer in between which you need to reverse. left and right
+  * iterate(while left>1) and reach at left and then currentNode= left pointer node and prevNode=left-1 pointer node; left--; right--
+  * in above loop right-- is required because while reversing you will require right in while loop.
+  * now connectionNode=prevNode and tailNode=currentNode
+  * Now do reverse linked list logic till right>0 and also do right--
+  * at the end connectionNode.next=prev and tail.next=currentNode and return head
+
+
 
 ### AlgoExpert
 
@@ -168,6 +189,7 @@
             if (value == 0) { finalValue[i] = value;} 
             else { finalValue[i] = -100 * value;}}
         return finalValue;
+
 ```  
 
   
