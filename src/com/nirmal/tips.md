@@ -1,12 +1,5 @@
 ## All Program solutions in Brief
 
-- [x] [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
-  ➡ [Reference](https://www.youtube.com/watch?v=dlATMslQ6Uc)
-    * create a map <Character,Integer> and put all roman char and respective numbers as value.
-    * iterate the input strings from last char and check id number for charAt(i) < number for charAt(i+1)
-    * then subtract charAt(i) number from result else add charAt(i) + result number
-
-
 - [x] [135. Candy](https://leetcode.com/problems/candy/)
   ➡ [Reference](https://www.algoexpert.io/questions/Min%20Rewards)
     * Same as [Algo expert - Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
@@ -136,14 +129,45 @@
             int difference = end - start;
             if (difference >= meetingDuration) { availableTimes.add(new StringMeeting(minutesToTime(start), minutesToTime(end)));}} 
   ```
-  * minutesToTime method will be 
+    * minutesToTime method will be
   ```
       int hour = time / 60; int min = time % 60;
       String hoursToString = Integer.toString(hour);
       String minToString = min < 10 ? "0" + Integer.toString(min) : Integer.toString(min);
       return hoursToString + ":" + minToString;
   ```
+    - [x] [Waterfall Streams](https://www.algoexpert.io/questions/Waterfall%20Streams)
+        * Iteration of two rows will lead us to solution. rowAbove=array[0], rowAbove[source]=-1;
+      ```
+      for (int row = 1; row < array.length; row++) {
+            double[] currentRow = array[row];
+            for (int idx = 0; idx < rowAbove.length; idx++) {
+                  double valueAbove = rowAbove[idx]; boolean hasWater = valueAbove < 0; boolean hasBlock = currentRow[idx] == 1.0;
+                  if (!hasWater) { continue;}
+                  if (!hasBlock) { currentRow[idx] = currentRow[idx] + valueAbove;continue;}
+                  double splitWater = valueAbove / 2;
+
+                  int rightIdx = idx;
+                  while (rightIdx + 1 < rowAbove.length) {
+                      rightIdx = rightIdx + 1;
+                      if (rowAbove[rightIdx] == 1.0) {break;}
+                      if (currentRow[rightIdx] != 1.0) { currentRow[rightIdx] = currentRow[rightIdx] + splitWater; break; } }
   
-  
+                  int leftIdx = idx;
+                  while (leftIdx - 1 >= 0) {
+                      leftIdx = leftIdx - 1;
+                      if (rowAbove[leftIdx] == 1.0) { break; }
+                      if (currentRow[leftIdx] != 1.0) { currentRow[leftIdx] = currentRow[leftIdx] + splitWater; break; }}
+              }
+              rowAbove = currentRow;
+          }
+          
+       double[] finalValue = new double[rowAbove.length];
+        for (int i = 0; i < rowAbove.length; i++) {
+            double value = rowAbove[i];
+            if (value == 0) { finalValue[i] = value;} 
+            else { finalValue[i] = -100 * value;}}
+        return finalValue;
+```  
 
   

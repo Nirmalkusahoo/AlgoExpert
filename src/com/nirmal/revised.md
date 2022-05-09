@@ -55,3 +55,9 @@
   * iterate through num array and in while loop check if input number >= numArray[i] then add stringArray[i] to
     stringBuilder
   * and make num=num-numArray[i]
+
+- [x] [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/)
+  ➡ [Reference](https://www.youtube.com/watch?v=dlATMslQ6Uc)
+  * create a map <Character,Integer> and put all roman char and respective numbers as value.
+  * iterate the input strings from last char and check id number for charAt(i) < number for charAt(i+1)
+  * then subtract charAt(i) number from result else add charAt(i) + result number
