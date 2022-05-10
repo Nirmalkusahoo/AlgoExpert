@@ -30,17 +30,16 @@
             result[2 * i + 1] = nums[i + n];
         }
   ```
-  
+
 - [x] [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
   ➡ [Reference](https://www.youtube.com/watch?v=GSJuwQzKSnI)
-  * You have two pointer in between which you need to reverse. left and right
-  * iterate(while left>1) and reach at left and then currentNode= left pointer node and prevNode=left-1 pointer node; left--; right--
-  * in above loop right-- is required because while reversing you will require right in while loop.
-  * now connectionNode=prevNode and tailNode=currentNode
-  * Now do reverse linked list logic till right>0 and also do right--
-  * at the end connectionNode.next=prev and tail.next=currentNode and return head
-
-
+    * You have two pointer in between which you need to reverse. left and right
+    * iterate(while left>1) and reach at left and then currentNode= left pointer node and prevNode=left-1 pointer node;
+      left--; right--
+    * in above loop right-- is required because while reversing you will require right in while loop.
+    * now connectionNode=prevNode and tailNode=currentNode
+    * Now do reverse linked list logic till right>0 and also do right--
+    * at the end connectionNode.next=prev and tail.next=currentNode and return head
 
 ### AlgoExpert
 
@@ -190,6 +189,19 @@
             else { finalValue[i] = -100 * value;}}
         return finalValue;
 
-```  
+- [x] [Minimum Area Rectangle](https://www.algoexpert.io/questions/Minimum%20Area%20Rectangle)
+    * One of the easiest solution which looks complex
+    * Create a HasSet(pointSet) from int[][] points input using X,Y of coordinates. set.add(String.valueOf(x) + ":" +
+      String.valueOf(y))[convert method]
+    * run two for loop and get int p1x = points[firstIdx][0]; int p1y = points[firstIdx][1]; int p2x =
+      points[secondIdx][0]; int p2y = points[secondIdx][1];
+    * check any coordinates shouldn't be in same axis . boolean isPointMatches = p1x == p2x || p1y == p2y; if (
+      isPointMatches) { continue;}
+    * Then find opposite/diagonal points
+    * boolean isOppositeToP1Exist = pointSet.contains(convert(p1x, p2y)); boolean isOppositeToP2Exist =
+      pointSet.contains(convert(p2x, p1y));
+    * if(isOppositeToP1Exist && isOppositeToP2Exist) then find the area=Math.abs(p1x - p2x)* Math.abs(p1y - p2y); and
+      store minArea
 
+               
   
