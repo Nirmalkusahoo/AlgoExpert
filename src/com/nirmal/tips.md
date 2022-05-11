@@ -214,5 +214,10 @@
                 } else { count[i][j] = count[i - 1][j] + count[i][j - 1];
                 
         return count[n][5];
-               
-  
+```               
+- [x] [Line 20Through Points](https://www.algoexpert.io/questions/Line%20Through%20Points)
+  ➡ [Reference](https://www.algoexpert.io/questions/Line%20Through%20Points)
+  * Run two for loop and take point1 and point2; and create map inside first for loop
+  * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
+  * Now make ket using rise and run and store it in map and out side the second for loop find the currentMax
+  * and store maxPointsInALine = Math.max(currentMax, maxPointsInALine);
