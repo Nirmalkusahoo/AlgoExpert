@@ -203,5 +203,16 @@
     * if(isOppositeToP1Exist && isOppositeToP2Exist) then find the area=Math.abs(p1x - p2x)* Math.abs(p1y - p2y); and
       store minArea
 
+- [x] [1641. Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings/)
+  ➡ [Reference](https://www.youtube.com/watch?v=IEIeC0b02HA)
+  * it is equals to levenstein distance problem.
+ ```
+     int[][] count = new int[n + 1][6];
+        for (int i = 1; i < count.length; i++) {
+            for (int j = 1; j < count[0].length; j++) {
+                if (i == 1) { count[i][j] = j;
+                } else { count[i][j] = count[i - 1][j] + count[i][j - 1];
+                
+        return count[n][5];
                
   
