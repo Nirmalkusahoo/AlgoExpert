@@ -221,3 +221,32 @@
   * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
   * Now make ket using rise and run and store it in map and out side the second for loop find the currentMax
   * and store maxPointsInALine = Math.max(currentMax, maxPointsInALine);
+
+- [x] [Permutations](https://www.algoexpert.io/questions/Permutations) [/ LeetCode - Permutations](https://leetcode.com/problems/permutations/)
+  ➡ [Reference](https://www.youtube.com/watch?v=f2ic2Rsc9pU)
+  ➡ [Reference](https://www.algoexpert.io/questions/Permutations)
+  * Two ways present using backtracking. 1. using Has Map 2. Not using hasmap to avoid space
+  ```
+   public static void getPermutations(int i, int[] array, List<List<Integer>> list) {
+        if (array.length - 1 == i) {
+            List<Integer> finalList = new ArrayList<Integer>();
+            for (int num : array) { finalList.add(num);}  list.add(finalList);
+        } else {
+            for (int j = i; j < array.length; j++) {
+                swap(i, j, array);
+                getPermutations(i + 1, array, list);
+                swap(i, j, array);
+            }
+        }
+    }
+
+- [x] [Cycle in Graph](https://www.algoexpert.io/questions/Cycle%20In%20Graph)
+  * Using int[] array and color code it will be solved.  int WHITE = 0, GRAY = 1, BLACK = 2;
+  * int[] colors = new int[numberOfNodes]; Arrays.fill(colors, WHITE);
+  * Need to iterate through all nodes and if its color[node] ==WHITE
+  * boolean containsCycle = traverseAndColorNodes(node, edges, colors);
+    if (containsCycle) { return true }
+  * and traverseAndColorNodes , change node color to GRAY and find neighbours 
+  * iterate through neighbours and while iterating if found gray then return true. If BLACK then continue
+  * OtherWise,( WHITE) again call do DFS by calling traverseAndColorNodes(neighbour, edges, colors)
+  * if it returns true then return true else make colors[node] = BLACK; and return false
