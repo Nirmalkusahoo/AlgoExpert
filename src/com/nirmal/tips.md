@@ -3,7 +3,11 @@
 - [x] [135. Candy](https://leetcode.com/problems/candy/)
   ➡ [Reference](https://www.algoexpert.io/questions/Min%20Rewards)
     * Same as [Algo expert - Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
-
+    * create rewards array with value 1 in all. Array.fill(rewards,1).
+    * in for (int i=1;i<len-1;i++) if(arr[i]>arr[i-1]) then rewards[i]=rewards[i-1]+1
+    * in second for loop need to iterate in reverse
+    * for(int i=len-2;i>=0;i--) if(arr[i]>arr[i+1]) rewards[i]= Math.max(arr[i],arr[i+1]+1)
+    * and next return sum of rewards array
 
 - [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
   ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
@@ -40,10 +44,7 @@
     * now connectionNode=prevNode and tailNode=currentNode
     * Now do reverse linked list logic till right>0 and also do right--
     * at the end connectionNode.next=prev and tail.next=currentNode and return head
-
-### AlgoExpert
-
-- #### Array
+    
 - [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
     * Create a map and store all number with boolean true map.put(num,true)
     * Iterate through num array and check if num is not visited then assign currentLength=1
@@ -51,13 +52,7 @@
     * in while loop check if left is present in map then currentLength++; map.put(left,false); left-- and do same for
       right
     * update the if currentLength> largest then update int[] bestRange={left+1 , right-1}
-
-- [x] [Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
-    * create rewards array with value 1 in all. Array.fill(rewards,1).
-    * in for (int i=1;i<len-1;i++) if(arr[i]>arr[i-1]) then rewards[i]=rewards[i-1]+1
-    * in second for loop need to iterate in reverse
-    * for(int i=len-2;i>=0;i--) if(arr[i]>arr[i+1]) rewards[i]= Math.max(arr[i],arr[i+1]+1)
-    * and next return sum of rewards array
+    
 
 - [x] [Non-Constructible Change](https://www.algoexpert.io/questions/Non-Constructible%20Change)
     * Sort coin array. int totalChangeCreated=0
@@ -215,7 +210,7 @@
                 
         return count[n][5];
 ```               
-- [x] [Line 20Through Points](https://www.algoexpert.io/questions/Line%20Through%20Points)
+- [x] [Line Through Points](https://www.algoexpert.io/questions/Line%20Through%20Points)
   ➡ [Reference](https://www.algoexpert.io/questions/Line%20Through%20Points)
   * Run two for loop and take point1 and point2; and create map inside first for loop
   * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
@@ -250,3 +245,10 @@
   * iterate through neighbours and while iterating if found gray then return true. If BLACK then continue
   * OtherWise,( WHITE) again call do DFS by calling traverseAndColorNodes(neighbour, edges, colors)
   * if it returns true then return true else make colors[node] = BLACK; and return false
+
+- [x] [1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/)
+  ➡ [Reference](https://www.youtube.com/watch?v=hM9tzzlRcnM)
+  * We need the deepest leaves sum which means basically we need last level element sum.
+  * Do a level order traversal using Queue and find sum of elements at each level.
+  * levelSum value should be reset to ) before eachLevel loop starts
+  * return level sum which basically last level sum
