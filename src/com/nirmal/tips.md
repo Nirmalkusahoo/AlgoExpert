@@ -35,15 +35,6 @@
         }
   ```
 
-- [x] [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
-  ➡ [Reference](https://www.youtube.com/watch?v=GSJuwQzKSnI)
-    * You have two pointer in between which you need to reverse. left and right
-    * iterate(while left>1) and reach at left and then currentNode= left pointer node and prevNode=left-1 pointer node;
-      left--; right--
-    * in above loop right-- is required because while reversing you will require right in while loop.
-    * now connectionNode=prevNode and tailNode=currentNode
-    * Now do reverse linked list logic till right>0 and also do right--
-    * at the end connectionNode.next=prev and tail.next=currentNode and return head
     
 - [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
     * Create a map and store all number with boolean true map.put(num,true)
@@ -107,16 +98,6 @@
     * firstNum = arrOne[pointer1]  ,secondNum=arrTwo[pointer2]  whichever array element is smaller increase its pointer.
     * if currentDiff<diff then diff=currentDiff and int[] pair={firstNum, secondNum}
 
-- [x] [Move Element To End](https://www.algoexpert.io/questions/Move%20Element%20To%20End)
-    * Can be done with two pointer L ,R while(L<R);
-    * in nested while(L<R && array.get(R) == elementToBeMoved) R--;
-    * then if(array.get(L) == toMove) swap (L,R) and L++;
-
-- [x] [Monotonic Array](https://www.algoexpert.io/questions/Monotonic%20Array)
-    * With two boolean variable isIncreasingOrder=true , isInDecreasingOrder=true it can be done
-    * Either arr[i]< arr[i+1] always(then isInDecreasingOrder=false;) OR arr[i]> arr[i+1] always (then
-      isIncreasingOrder=false)
-    * and return isIncreasingOrder || isInDecreasingOrder;
 
 - [x] [Calendar Matching](https://www.algoexpert.io/questions/Calendar%20Matching)
     * This problem looks like huge code ,but logically its very simple. You need two type of objects
@@ -198,18 +179,7 @@
     * if(isOppositeToP1Exist && isOppositeToP2Exist) then find the area=Math.abs(p1x - p2x)* Math.abs(p1y - p2y); and
       store minArea
 
-- [x] [1641. Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings/)
-  ➡ [Reference](https://www.youtube.com/watch?v=IEIeC0b02HA)
-  * it is equals to levenstein distance problem.
- ```
-     int[][] count = new int[n + 1][6];
-        for (int i = 1; i < count.length; i++) {
-            for (int j = 1; j < count[0].length; j++) {
-                if (i == 1) { count[i][j] = j;
-                } else { count[i][j] = count[i - 1][j] + count[i][j - 1];
-                
-        return count[n][5];
-```               
+              
 - [x] [Line Through Points](https://www.algoexpert.io/questions/Line%20Through%20Points)
   ➡ [Reference](https://www.algoexpert.io/questions/Line%20Through%20Points)
   * Run two for loop and take point1 and point2; and create map inside first for loop
@@ -250,5 +220,14 @@
   ➡ [Reference](https://www.youtube.com/watch?v=hM9tzzlRcnM)
   * We need the deepest leaves sum which means basically we need last level element sum.
   * Do a level order traversal using Queue and find sum of elements at each level.
-  * levelSum value should be reset to ) before eachLevel loop starts
+  * levelSum value should be reset to 0 before eachLevel loop starts
   * return level sum which basically last level sum
+
+
+- [x] [Minimum Passes Of Matrix](https://www.algoexpert.io/questions/Minimum%20Passes%20Of%20Matrix)
+  * It is simple problem with extra variable i.e. passes and you need to return passes-1 as ans;
+  * iterate over the matrix and get all positive numbers in to a queue;
+  * and the while (!queue.isEmpty()) { int size = queue.size(); while (size > 0) {
+  * get the individual  position and get there neighbour elements .If any neighbour <0 make them positive and it to queue
+  * and then size-- and also passes++ at then end return passes-1. because last iteration will always iterate only through positive integers.
+  * And then check if matrix contains Negatives value then return -1 otherwise passes;

@@ -61,3 +61,36 @@
   * create a map <Character,Integer> and put all roman char and respective numbers as value.
   * iterate the input strings from last char and check id number for charAt(i) < number for charAt(i+1)
   * then subtract charAt(i) number from result else add charAt(i) + result number
+
+- [x] [1641. Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings/)
+  ➡ [Reference](https://www.youtube.com/watch?v=IEIeC0b02HA)
+  * it is equals to levenstein distance problem.
+ ```
+     int[][] count = new int[n + 1][6];
+        for (int i = 1; i < count.length; i++) {
+            for (int j = 1; j < count[0].length; j++) {
+                if (i == 1) { count[i][j] = j;
+                } else { count[i][j] = count[i - 1][j] + count[i][j - 1];
+                
+        return count[n][5];
+``` 
+- [x] [Monotonic Array](https://www.algoexpert.io/questions/Monotonic%20Array)
+  * With two boolean variable isIncreasingOrder=true , isInDecreasingOrder=true it can be done
+  * Either arr[i]< arr[i+1] always(then isInDecreasingOrder=false;) OR arr[i]> arr[i+1] always (then
+    isIncreasingOrder=false)
+  * and return isIncreasingOrder || isInDecreasingOrder;
+
+- [x] [Move Element To End](https://www.algoexpert.io/questions/Move%20Element%20To%20End)
+  * Can be done with two pointer L ,R while(L<R);
+  * in nested while(L<R && array.get(R) == elementToBeMoved) R--;
+  * then if(array.get(L) == toMove) swap (L,R) and L++;
+
+- [x] [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
+  ➡ [Reference](https://www.youtube.com/watch?v=GSJuwQzKSnI)
+  * You have two pointer in between which you need to reverse. left and right
+  * iterate(while left>1) and reach at left and then currentNode= left pointer node and prevNode=left-1 pointer node;
+    left--; right--
+  * in above loop right-- is required because while reversing you will require right in while loop.
+  * now connectionNode=prevNode and tailNode=currentNode
+  * Now do reverse linked list logic till right>0 and also do right--
+  * at the end connectionNode.next=prev and tail.next=currentNode and return head
