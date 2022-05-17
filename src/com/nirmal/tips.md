@@ -35,7 +35,7 @@
         }
   ```
 
-    
+
 - [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
     * Create a map and store all number with boolean true map.put(num,true)
     * Iterate through num array and check if num is not visited then assign currentLength=1
@@ -43,7 +43,7 @@
     * in while loop check if left is present in map then currentLength++; map.put(left,false); left-- and do same for
       right
     * update the if currentLength> largest then update int[] bestRange={left+1 , right-1}
-    
+
 
 - [x] [Non-Constructible Change](https://www.algoexpert.io/questions/Non-Constructible%20Change)
     * Sort coin array. int totalChangeCreated=0
@@ -179,18 +179,18 @@
     * if(isOppositeToP1Exist && isOppositeToP2Exist) then find the area=Math.abs(p1x - p2x)* Math.abs(p1y - p2y); and
       store minArea
 
-              
+
 - [x] [Line Through Points](https://www.algoexpert.io/questions/Line%20Through%20Points)
   ➡ [Reference](https://www.algoexpert.io/questions/Line%20Through%20Points)
-  * Run two for loop and take point1 and point2; and create map inside first for loop
-  * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
-  * Now make ket using rise and run and store it in map and out side the second for loop find the currentMax
-  * and store maxPointsInALine = Math.max(currentMax, maxPointsInALine);
+    * Run two for loop and take point1 and point2; and create map inside first for loop
+    * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
+    * Now make ket using rise and run and store it in map and out side the second for loop find the currentMax
+    * and store maxPointsInALine = Math.max(currentMax, maxPointsInALine);
 
 - [x] [Permutations](https://www.algoexpert.io/questions/Permutations) [/ LeetCode - Permutations](https://leetcode.com/problems/permutations/)
   ➡ [Reference](https://www.youtube.com/watch?v=f2ic2Rsc9pU)
   ➡ [Reference](https://www.algoexpert.io/questions/Permutations)
-  * Two ways present using backtracking. 1. using Has Map 2. Not using hasmap to avoid space
+    * Two ways present using backtracking. 1. using Has Map 2. Not using hasmap to avoid space
   ```
    public static void getPermutations(int i, int[] array, List<List<Integer>> list) {
         if (array.length - 1 == i) {
@@ -206,28 +206,60 @@
     }
 
 - [x] [Cycle in Graph](https://www.algoexpert.io/questions/Cycle%20In%20Graph)
-  * Using int[] array and color code it will be solved.  int WHITE = 0, GRAY = 1, BLACK = 2;
-  * int[] colors = new int[numberOfNodes]; Arrays.fill(colors, WHITE);
-  * Need to iterate through all nodes and if its color[node] ==WHITE
-  * boolean containsCycle = traverseAndColorNodes(node, edges, colors);
-    if (containsCycle) { return true }
-  * and traverseAndColorNodes , change node color to GRAY and find neighbours 
-  * iterate through neighbours and while iterating if found gray then return true. If BLACK then continue
-  * OtherWise,( WHITE) again call do DFS by calling traverseAndColorNodes(neighbour, edges, colors)
-  * if it returns true then return true else make colors[node] = BLACK; and return false
+    * Using int[] array and color code it will be solved. int WHITE = 0, GRAY = 1, BLACK = 2;
+    * int[] colors = new int[numberOfNodes]; Arrays.fill(colors, WHITE);
+    * Need to iterate through all nodes and if its color[node] ==WHITE
+    * boolean containsCycle = traverseAndColorNodes(node, edges, colors); if (containsCycle) { return true }
+    * and traverseAndColorNodes , change node color to GRAY and find neighbours
+    * iterate through neighbours and while iterating if found gray then return true. If BLACK then continue
+    * OtherWise,( WHITE) again call do DFS by calling traverseAndColorNodes(neighbour, edges, colors)
+    * if it returns true then return true else make colors[node] = BLACK; and return false
 
 - [x] [1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/)
   ➡ [Reference](https://www.youtube.com/watch?v=hM9tzzlRcnM)
-  * We need the deepest leaves sum which means basically we need last level element sum.
-  * Do a level order traversal using Queue and find sum of elements at each level.
-  * levelSum value should be reset to 0 before eachLevel loop starts
-  * return level sum which basically last level sum
+    * We need the deepest leaves sum which means basically we need last level element sum.
+    * Do a level order traversal using Queue and find sum of elements at each level.
+    * levelSum value should be reset to 0 before eachLevel loop starts
+    * return level sum which basically last level sum
 
 
 - [x] [Minimum Passes Of Matrix](https://www.algoexpert.io/questions/Minimum%20Passes%20Of%20Matrix)
-  * It is simple problem with extra variable i.e. passes and you need to return passes-1 as ans;
-  * iterate over the matrix and get all positive numbers in to a queue;
-  * and the while (!queue.isEmpty()) { int size = queue.size(); while (size > 0) {
-  * get the individual  position and get there neighbour elements .If any neighbour <0 make them positive and it to queue
-  * and then size-- and also passes++ at then end return passes-1. because last iteration will always iterate only through positive integers.
-  * And then check if matrix contains Negatives value then return -1 otherwise passes;
+    * It is simple problem with extra variable i.e. passes and you need to return passes-1 as ans;
+    * iterate over the matrix and get all positive numbers in to a queue;
+    * and the while (!queue.isEmpty()) { int size = queue.size(); while (size > 0) {
+    * get the individual position and get there neighbour elements .If any neighbour <0 make them positive and it to
+      queue
+    * and then size-- and also passes++ at then end return passes-1. because last iteration will always iterate only
+      through positive integers.
+    * And then check if matrix contains Negatives value then return -1 otherwise passes;
+
+- [x] [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
+  ➡ [Reference](https://www.youtube.com/watch?v=CABaqOkWbgQ)
+    * It's a simple matrix traversal program using BFS where we need to find next 8 direction positions.
+    * Add first node -> queue.offer(new int[]{0, 0, 1}), here third value is node/path count and make first node as
+      visited by marking grid[0][0] = 1;
+    * now while loop thorough queue and again in inner while loop through size.
+    * Take row and col value if (r == height - 1 && c == width - 1) return path;
+    * count 8 direction nodes int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {-1, 1}, {1, -1}};
+    * Add it to queue only if if (row >= 0 && row < height && col >= 0 && col < width && grid[row][col] == 0)
+    * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to increase the path/node count.
+    * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
+
+- [x] [1290. Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
+  ➡ [Reference](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/discuss/629087/Detailed-explanation-Java-%3A-faster-than-100.00)
+  * Its just based on a easy formula binary -> decimal
+  * int sum = 0;
+       while (head != null)
+       sum = sum * 2;  sum = sum + head.val;  head = head.next;
+       return sum;
+       
+
+- [x] [2016. Maximum Difference Between Increasing Elements](https://leetcode.com/problems/maximum-difference-between-increasing-elements/)
+  ➡ [Reference](https://leetcode.com/problems/maximum-difference-between-increasing-elements/discuss/1486323/JavaPython-3-Time-O(n)-space-O(1)-codes-w-brief-explanation-and-a-similar-problem.)
+  ```
+         int min = nums[0]; int maxDiff = Integer.MIN_VALUE;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > min) { maxDiff = Math.max(maxDiff, nums[i] - min) }
+            min = Math.min(min, nums[i]);
+        }
+        return maxDiff == Integer.MIN_VALUE ? -1 : maxDiff;
