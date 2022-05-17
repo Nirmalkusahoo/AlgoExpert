@@ -94,3 +94,39 @@
   * now connectionNode=prevNode and tailNode=currentNode
   * Now do reverse linked list logic till right>0 and also do right--
   * at the end connectionNode.next=prev and tail.next=currentNode and return head
+  * 
+- [x] [1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/)
+  ➡ [Reference](https://www.youtube.com/watch?v=hM9tzzlRcnM)
+  * We need the deepest leaves sum which means basically we need last level element sum.
+  * Do a level order traversal using Queue and find sum of elements at each level.
+  * levelSum value should be reset to 0 before eachLevel loop starts
+  * return level sum which basically last level sum
+
+- [x] [135. Candy](https://leetcode.com/problems/candy/)
+  ➡ [Reference](https://www.algoexpert.io/questions/Min%20Rewards)
+  * Same as [Algo expert - Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
+  * create rewards array with value 1 in all. Array.fill(rewards,1).
+  * in for (int i=1;i<len-1;i++) if(arr[i]>arr[i-1]) then rewards[i]=rewards[i-1]+1
+  * in second for loop need to iterate in reverse
+  * for(int i=len-2;i>=0;i--) if(arr[i]>arr[i+1]) rewards[i]= Math.max(arr[i],arr[i+1]+1)
+  * and next return sum of rewards array
+
+- [x] [1470. Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
+  * its game of two pointer
+  * first pointer 2*i and second 2*i + 1
+  ```
+  for (int i = 0; i < n; i++) {
+            result[2 * i] = nums[i];
+            result[2 * i + 1] = nums[i + n];
+        }
+  ```
+
+- [x] [Cycle in Graph](https://www.algoexpert.io/questions/Cycle%20In%20Graph)
+  * Using int[] array and color code it will be solved. int WHITE = 0, GRAY = 1, BLACK = 2;
+  * int[] colors = new int[numberOfNodes]; Arrays.fill(colors, WHITE);
+  * Need to iterate through all nodes and if its color[node] ==WHITE
+  * boolean containsCycle = traverseAndColorNodes(node, edges, colors); if (containsCycle) { return true }
+  * and traverseAndColorNodes , change node color to GRAY and find neighbours
+  * iterate through neighbours and while iterating if found gray then return true. If BLACK then continue
+  * OtherWise,( WHITE) again call do DFS by calling traverseAndColorNodes(neighbour, edges, colors)
+  * if it returns true then return true else make colors[node] = BLACK; and return false

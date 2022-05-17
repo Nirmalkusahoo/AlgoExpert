@@ -1,14 +1,5 @@
 ## All Program solutions in Brief
 
-- [x] [135. Candy](https://leetcode.com/problems/candy/)
-  ➡ [Reference](https://www.algoexpert.io/questions/Min%20Rewards)
-    * Same as [Algo expert - Min Rewards](https://www.algoexpert.io/questions/Min%20Rewards)
-    * create rewards array with value 1 in all. Array.fill(rewards,1).
-    * in for (int i=1;i<len-1;i++) if(arr[i]>arr[i-1]) then rewards[i]=rewards[i-1]+1
-    * in second for loop need to iterate in reverse
-    * for(int i=len-2;i>=0;i--) if(arr[i]>arr[i+1]) rewards[i]= Math.max(arr[i],arr[i+1]+1)
-    * and next return sum of rewards array
-
 - [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
   ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
     * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
@@ -24,16 +15,6 @@
       }
       stack.push(nums[j]);
 
-
-- [x] [1470. Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/)
-    * its game of two pointer
-    * first pointer 2*i and second 2*i + 1
-  ```
-  for (int i = 0; i < n; i++) {
-            result[2 * i] = nums[i];
-            result[2 * i + 1] = nums[i + n];
-        }
-  ```
 
 
 - [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
@@ -204,23 +185,7 @@
             }
         }
     }
-
-- [x] [Cycle in Graph](https://www.algoexpert.io/questions/Cycle%20In%20Graph)
-    * Using int[] array and color code it will be solved. int WHITE = 0, GRAY = 1, BLACK = 2;
-    * int[] colors = new int[numberOfNodes]; Arrays.fill(colors, WHITE);
-    * Need to iterate through all nodes and if its color[node] ==WHITE
-    * boolean containsCycle = traverseAndColorNodes(node, edges, colors); if (containsCycle) { return true }
-    * and traverseAndColorNodes , change node color to GRAY and find neighbours
-    * iterate through neighbours and while iterating if found gray then return true. If BLACK then continue
-    * OtherWise,( WHITE) again call do DFS by calling traverseAndColorNodes(neighbour, edges, colors)
-    * if it returns true then return true else make colors[node] = BLACK; and return false
-
-- [x] [1302. Deepest Leaves Sum](https://leetcode.com/problems/deepest-leaves-sum/)
-  ➡ [Reference](https://www.youtube.com/watch?v=hM9tzzlRcnM)
-    * We need the deepest leaves sum which means basically we need last level element sum.
-    * Do a level order traversal using Queue and find sum of elements at each level.
-    * levelSum value should be reset to 0 before eachLevel loop starts
-    * return level sum which basically last level sum
+    
 
 
 - [x] [Minimum Passes Of Matrix](https://www.algoexpert.io/questions/Minimum%20Passes%20Of%20Matrix)
@@ -242,7 +207,7 @@
     * Take row and col value if (r == height - 1 && c == width - 1) return path;
     * count 8 direction nodes int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {-1, 1}, {1, -1}};
     * Add it to queue only if if (row >= 0 && row < height && col >= 0 && col < width && grid[row][col] == 0)
-    * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to increase the path/node count.
+    * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to decrease the path/node count.
     * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
 
 - [x] [1290. Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
@@ -263,3 +228,17 @@
             min = Math.min(min, nums[i]);
         }
         return maxDiff == Integer.MIN_VALUE ? -1 : maxDiff;
+
+- [x] [1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/)
+  ➡ [Reference](https://www.youtube.com/watch?v=Zi9btldKyTM)
+  * The problem is doing tree traversal and finding matching node.
+  * Do a InOrder traversal and also check if targetNode==original then store it in resultNode.
+  * And at the end return resultNode
+
+- [x] [694. Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/)
+  ➡ [Reference](https://www.youtube.com/watch?v=u617H2WwR5g&t=5s)
+  * Its simple doing bfs operation on matrix node. Storing combination off all nodes indexes in s Set.
+  * The  trick here is StringBuilder.append(row - baseRow).append(col - baseCol); and storing StringBuilder in to Set.
+  * Iterate through all nodes those are islands.
+  * Do BFS on each node and store the node row and col value in StringBuilder.append(row - baseRow).append(col - baseCol)
+  * Find the neighbour nodes and add it to queue only if they are in boundary and a LAND.
