@@ -4,40 +4,8 @@
   ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
     * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
 
-- [x] [456. 132 Pattern](https://leetcode.com/problems/132-pattern/)
-  ➡ [Reference](https://leetcode.com/problems/132-pattern/solution/)
-    * create a min array by using condition min[i]= Math.min(nums[i],min[i-1])
-    * Solution is based on mono stack(elements are stored in ascending order from top to bottom).
-  ``` for (int j = nums.length - 1; j >= 0; j--) {
-      while (!stack.isEmpty() && nums[j] > stack.peek()) {
-      if (stack.peek() > min[j])  return true;
-      stack.pop();
-      }
-      stack.push(nums[j]);
 
 
-
-- [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
-    * Create a map and store all number with boolean true map.put(num,true)
-    * Iterate through num array and check if num is not visited then assign currentLength=1
-    * then left=num-1 and right=num+1
-    * in while loop check if left is present in map then currentLength++; map.put(left,false); left-- and do same for
-      right
-    * update the if currentLength> largest then update int[] bestRange={left+1 , right-1}
-
-
-- [x] [Non-Constructible Change](https://www.algoexpert.io/questions/Non-Constructible%20Change)
-    * Sort coin array. int totalChangeCreated=0
-    * for(int coin:coins) if(coin>totalChangeCrated +1) then return totalChangeCreated +1
-    * else totalChangeCreated=totalChangeCreated+coin;
-
-- [x] [Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
-    * i=1; while(i<arr.length-1) if(array[i - 1] < array[i] && array[i] > array[i + 1]) booelan isPeak=true;
-    * if(!isPeak)= i++ ;continue
-    * left=i-2; right=i+2; while(left >= 0 && array[left] < array[left + 1)   left=left-1; similarly for while( right <
-      array.length && array[right - 1] < array[right])
-    * int currenLength=right-left-1 and compare with maxLength and store. new i=right and after intital while loop
-      return maxLength;
 
 - [x] [Merge Overlapping Intervals](https://www.algoexpert.io/questions/Merge%20Overlapping%20Intervals)
     * create List<int[]> merged; int[]currentInterval=intervals[0]; merged.add(currentInterval)
@@ -113,60 +81,8 @@
       String minToString = min < 10 ? "0" + Integer.toString(min) : Integer.toString(min);
       return hoursToString + ":" + minToString;
   ```
-    - [x] [Waterfall Streams](https://www.algoexpert.io/questions/Waterfall%20Streams)
-        * Iteration of two rows will lead us to solution. rowAbove=array[0], rowAbove[source]=-1;
-      ```
-      for (int row = 1; row < array.length; row++) {
-            double[] currentRow = array[row];
-            for (int idx = 0; idx < rowAbove.length; idx++) {
-                  double valueAbove = rowAbove[idx]; boolean hasWater = valueAbove < 0; boolean hasBlock = currentRow[idx] == 1.0;
-                  if (!hasWater) { continue;}
-                  if (!hasBlock) { currentRow[idx] = currentRow[idx] + valueAbove;continue;}
-                  double splitWater = valueAbove / 2;
-
-                  int rightIdx = idx;
-                  while (rightIdx + 1 < rowAbove.length) {
-                      rightIdx = rightIdx + 1;
-                      if (rowAbove[rightIdx] == 1.0) {break;}
-                      if (currentRow[rightIdx] != 1.0) { currentRow[rightIdx] = currentRow[rightIdx] + splitWater; break; } }
-  
-                  int leftIdx = idx;
-                  while (leftIdx - 1 >= 0) {
-                      leftIdx = leftIdx - 1;
-                      if (rowAbove[leftIdx] == 1.0) { break; }
-                      if (currentRow[leftIdx] != 1.0) { currentRow[leftIdx] = currentRow[leftIdx] + splitWater; break; }}
-              }
-              rowAbove = currentRow;
-          }
-          
-       double[] finalValue = new double[rowAbove.length];
-        for (int i = 0; i < rowAbove.length; i++) {
-            double value = rowAbove[i];
-            if (value == 0) { finalValue[i] = value;} 
-            else { finalValue[i] = -100 * value;}}
-        return finalValue;
-
-- [x] [Minimum Area Rectangle](https://www.algoexpert.io/questions/Minimum%20Area%20Rectangle)
-    * One of the easiest solution which looks complex
-    * Create a HasSet(pointSet) from int[][] points input using X,Y of coordinates. set.add(String.valueOf(x) + ":" +
-      String.valueOf(y))[convert method]
-    * run two for loop and get int p1x = points[firstIdx][0]; int p1y = points[firstIdx][1]; int p2x =
-      points[secondIdx][0]; int p2y = points[secondIdx][1];
-    * check any coordinates shouldn't be in same axis . boolean isPointMatches = p1x == p2x || p1y == p2y; if (
-      isPointMatches) { continue;}
-    * Then find opposite/diagonal points
-    * boolean isOppositeToP1Exist = pointSet.contains(convert(p1x, p2y)); boolean isOppositeToP2Exist =
-      pointSet.contains(convert(p2x, p1y));
-    * if(isOppositeToP1Exist && isOppositeToP2Exist) then find the area=Math.abs(p1x - p2x)* Math.abs(p1y - p2y); and
-      store minArea
 
 
-- [x] [Line Through Points](https://www.algoexpert.io/questions/Line%20Through%20Points)
-  ➡ [Reference](https://www.algoexpert.io/questions/Line%20Through%20Points)
-    * Run two for loop and take point1 and point2; and create map inside first for loop
-    * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
-    * Now make ket using rise and run and store it in map and out side the second for loop find the currentMax
-    * and store maxPointsInALine = Math.max(currentMax, maxPointsInALine);
 
 - [x] [Permutations](https://www.algoexpert.io/questions/Permutations) [/ LeetCode - Permutations](https://leetcode.com/problems/permutations/)
   ➡ [Reference](https://www.youtube.com/watch?v=f2ic2Rsc9pU)
@@ -185,18 +101,6 @@
             }
         }
     }
-    
-
-
-- [x] [Minimum Passes Of Matrix](https://www.algoexpert.io/questions/Minimum%20Passes%20Of%20Matrix)
-    * It is simple problem with extra variable i.e. passes and you need to return passes-1 as ans;
-    * iterate over the matrix and get all positive numbers in to a queue;
-    * and the while (!queue.isEmpty()) { int size = queue.size(); while (size > 0) {
-    * get the individual position and get there neighbour elements .If any neighbour <0 make them positive and it to
-      queue
-    * and then size-- and also passes++ at then end return passes-1. because last iteration will always iterate only
-      through positive integers.
-    * And then check if matrix contains Negatives value then return -1 otherwise passes;
 
 - [x] [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
   ➡ [Reference](https://www.youtube.com/watch?v=CABaqOkWbgQ)
@@ -210,35 +114,53 @@
     * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to decrease the path/node count.
     * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
 
-- [x] [1290. Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/)
-  ➡ [Reference](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/discuss/629087/Detailed-explanation-Java-%3A-faster-than-100.00)
-  * Its just based on a easy formula binary -> decimal
-  * int sum = 0;
-       while (head != null)
-       sum = sum * 2;  sum = sum + head.val;  head = head.next;
-       return sum;
-       
 
-- [x] [2016. Maximum Difference Between Increasing Elements](https://leetcode.com/problems/maximum-difference-between-increasing-elements/)
-  ➡ [Reference](https://leetcode.com/problems/maximum-difference-between-increasing-elements/discuss/1486323/JavaPython-3-Time-O(n)-space-O(1)-codes-w-brief-explanation-and-a-similar-problem.)
+
+
+
+- [x] [Boggle Board](https://www.algoexpert.io/questions/Boggle%20Board)
+    *
+
+- [x] [329. Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
+  ➡ [Reference](https://www.youtube.com/watch?v=WiEqhI7v2FY)
+    * Its is simple matrix traversal problem. Its just that we need memorise the value to improve TC.
+    * see at each node the path value =1, and if we go to next node then it will be prev path+ current path.
+    * So the whole logic depends on this only. Do matrix traversal get the adjacent nodes and if adjacent nodes >
+      currentNode
+    * then call dfs on that node . Since a node can go in to 4 direction we need to save max among all 4 direction.
+
+- [x] [63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
+  ➡ [Reference](https://www.youtube.com/watch?v=nZSXWXzn1aM)
+    * Its not that complex. Basic fundamental logic is for each position find how many ways are there to reach.And at the end you
+      will have value for reaching the bottom right position.
+    * Find the ways to reach for first column and row values in if condition
+    * and then using these values you can get other values position obstacleGrid[i][j] = obstacleGrid[i - 1][j] +
+      obstacleGrid[i][j - 1];
+
+- [x] [Rectangle Mania](https://www.algoexpert.io/questions/Rectangle%20Mania)
+  * Boom it is also one of the simplest algo but looks complex.
+  * Store each coordinate in a Set in String format.
+  * Now for(nested for loop) each coordinate check whether it has upperRight coordinate.
+  * then if both upperCoordinate and rightCoordinate exist increase the count
+
+- [x] [32. Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
+  ➡ [Reference:1](https://www.youtube.com/watch?v=VdQuwtEd10M) [Reference:2](https://www.youtube.com/watch?v=qC5DGX0CPFA)
+  * Since its parenthesis problem then yehh Stack will be coming.  stack.push(-1);
   ```
-         int min = nums[0]; int maxDiff = Integer.MIN_VALUE;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] > min) { maxDiff = Math.max(maxDiff, nums[i] - min) }
-            min = Math.min(min, nums[i]);
-        }
-        return maxDiff == Integer.MIN_VALUE ? -1 : maxDiff;
+  for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') { stack.push(i);
+            } else {
+                stack.pop();
+                if (stack.isEmpty()) { stack.push(i);
+                } else { maxLength = Math.max(maxLength, i - stack.peek()); } }
+        } 
 
-- [x] [1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/)
-  ➡ [Reference](https://www.youtube.com/watch?v=Zi9btldKyTM)
-  * The problem is doing tree traversal and finding matching node.
-  * Do a InOrder traversal and also check if targetNode==original then store it in resultNode.
-  * And at the end return resultNode
-
-- [x] [694. Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/)
-  ➡ [Reference](https://www.youtube.com/watch?v=u617H2WwR5g&t=5s)
-  * Its simple doing bfs operation on matrix node. Storing combination off all nodes indexes in s Set.
-  * The  trick here is StringBuilder.append(row - baseRow).append(col - baseCol); and storing StringBuilder in to Set.
-  * Iterate through all nodes those are islands.
-  * Do BFS on each node and store the node row and col value in StringBuilder.append(row - baseRow).append(col - baseCol)
-  * Find the neighbour nodes and add it to queue only if they are in boundary and a LAND.
+- [x] [Generate-div-tags](https://www.algoexpert.io/questions/generate-div-tags)
+  * It's an easy to remember recursive solution.
+  ```
+  generate("", numberOfTags, numberOfTags, list);
+  public static void generate(String str, int open, int close, ArrayList<String> list) {
+        if (open > 0) { String newStr = str + "<div>"; generate(newStr, open - 1, close, list) }
+        if (open < close) { String newStr =  str + "</div>"; generate(newStr, open, close - 1, list) }
+        if (close == 0) { list.add(str) }
+    }
