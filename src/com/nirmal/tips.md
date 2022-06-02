@@ -82,26 +82,6 @@
       return hoursToString + ":" + minToString;
   ```
 
-
-
-- [x] [Permutations](https://www.algoexpert.io/questions/Permutations) [/ LeetCode - Permutations](https://leetcode.com/problems/permutations/)
-  ➡ [Reference](https://www.youtube.com/watch?v=f2ic2Rsc9pU)
-  ➡ [Reference](https://www.algoexpert.io/questions/Permutations)
-    * Two ways present using backtracking. 1. using Has Map 2. Not using hasmap to avoid space
-  ```
-   public static void getPermutations(int i, int[] array, List<List<Integer>> list) {
-        if (array.length - 1 == i) {
-            List<Integer> finalList = new ArrayList<Integer>();
-            for (int num : array) { finalList.add(num);}  list.add(finalList);
-        } else {
-            for (int j = i; j < array.length; j++) {
-                swap(i, j, array);
-                getPermutations(i + 1, array, list);
-                swap(i, j, array);
-            }
-        }
-    }
-
 - [x] [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
   ➡ [Reference](https://www.youtube.com/watch?v=CABaqOkWbgQ)
     * It's a simple matrix traversal program using BFS where we need to find next 8 direction positions.
@@ -114,53 +94,9 @@
     * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to decrease the path/node count.
     * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
 
-
-
-
-
 - [x] [Boggle Board](https://www.algoexpert.io/questions/Boggle%20Board)
-    *
+   *
 
-- [x] [329. Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
-  ➡ [Reference](https://www.youtube.com/watch?v=WiEqhI7v2FY)
-    * Its is simple matrix traversal problem. Its just that we need memorise the value to improve TC.
-    * see at each node the path value =1, and if we go to next node then it will be prev path+ current path.
-    * So the whole logic depends on this only. Do matrix traversal get the adjacent nodes and if adjacent nodes >
-      currentNode
-    * then call dfs on that node . Since a node can go in to 4 direction we need to save max among all 4 direction.
-
-- [x] [63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
-  ➡ [Reference](https://www.youtube.com/watch?v=nZSXWXzn1aM)
-    * Its not that complex. Basic fundamental logic is for each position find how many ways are there to reach.And at the end you
-      will have value for reaching the bottom right position.
-    * Find the ways to reach for first column and row values in if condition
-    * and then using these values you can get other values position obstacleGrid[i][j] = obstacleGrid[i - 1][j] +
-      obstacleGrid[i][j - 1];
-
-- [x] [Rectangle Mania](https://www.algoexpert.io/questions/Rectangle%20Mania)
-  * Boom it is also one of the simplest algo but looks complex.
-  * Store each coordinate in a Set in String format.
-  * Now for(nested for loop) each coordinate check whether it has upperRight coordinate.
-  * then if both upperCoordinate and rightCoordinate exist increase the count
-
-- [x] [32. Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/)
-  ➡ [Reference:1](https://www.youtube.com/watch?v=VdQuwtEd10M) [Reference:2](https://www.youtube.com/watch?v=qC5DGX0CPFA)
-  * Since its parenthesis problem then yehh Stack will be coming.  stack.push(-1);
-  ```
-  for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(') { stack.push(i);
-            } else {
-                stack.pop();
-                if (stack.isEmpty()) { stack.push(i);
-                } else { maxLength = Math.max(maxLength, i - stack.peek()); } }
-        } 
-
-- [x] [Generate-div-tags](https://www.algoexpert.io/questions/generate-div-tags)
-  * It's an easy to remember recursive solution.
-  ```
-  generate("", numberOfTags, numberOfTags, list);
-  public static void generate(String str, int open, int close, ArrayList<String> list) {
-        if (open > 0) { String newStr = str + "<div>"; generate(newStr, open - 1, close, list) }
-        if (open < close) { String newStr =  str + "</div>"; generate(newStr, open, close - 1, list) }
-        if (close == 0) { list.add(str) }
-    }
+- [x] [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)
+  * We don't need any special algorithms to do this. 
+  * You just need to know what the transpose of a matrix looks like. Rows become columns and vice versa!
