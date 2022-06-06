@@ -322,3 +322,7 @@
   * So the whole logic depends on this only. Do matrix traversal get the adjacent nodes and if adjacent nodes >
     currentNode
   * then call dfs on that node . Since a node can go in to 4 direction we need to save max among all 4 direction.
+
+- [x] [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)
+  * We don't need any special algorithms to do this.
+  * You just need to know what the transpose of a matrix looks like. Rows become columns and vice versa!

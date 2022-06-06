@@ -97,6 +97,8 @@
 - [x] [Boggle Board](https://www.algoexpert.io/questions/Boggle%20Board)
    *
 
-- [x] [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)
-  * We don't need any special algorithms to do this. 
-  * You just need to know what the transpose of a matrix looks like. Rows become columns and vice versa!
+
+
+- [x] [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+  * traverse first one and store in set then traverse second one.
+  * if found in set then return that.
