@@ -1,28 +1,34 @@
 package com.nirmal.algoExpert;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Practise {
 
-    public int uniquePaths(int m, int n) {
-        int[][] matrix = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i == 0 || j == 0) {
-                    matrix[i][j] = 1;
-                } else {
-                    matrix[i][j] = matrix[i - 1][j] + matrix[i][j - 1];
-                }
+    public static int lengthOfLongestSubstring(String s) {
+        Map<Character, Integer> location = new HashMap<>();
+
+        int[] length = new int[]{0, 1};
+        int startIdx = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (location.containsKey(c)) {
+                startIdx=Math.max(location.get(c)+1,startIdx);
             }
+            if (length[1] - length[0] < i + 1 - startIdx) {
+                length[0] = startIdx;
+                length[1] = i + 1;
+            }
+
+            location.put(c, i);
         }
-        return matrix[m - 1][n - 1];
+        return length[1] - length[0];
     }
 
 
     public static void main(String[] args) {
-        String s1 = null;
-        String s2 = null;
-
-        System.out.println(s1.equals(s2));
+        System.out.println(lengthOfLongestSubstring("tmmzuxta"));
     }
 
 }
