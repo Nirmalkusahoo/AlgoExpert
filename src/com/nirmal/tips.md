@@ -5,12 +5,6 @@
     * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
 
 
-- [x] [Merge Overlapping Intervals](https://www.algoexpert.io/questions/Merge%20Overlapping%20Intervals)
-    * create List<int[]> merged; int[]currentInterval=intervals[0]; merged.add(currentInterval)
-    * iterate in intervals ; for(int[] nextInterval:intervals) if(currentEnd>nextStart) then currentEnd=Math.max(
-      currentEnd,nextEnd)
-    * else merged.add(nextInterval); currentInterval=nextInterval;
-
 - [x] [Four Number Sum](https://www.algoexpert.io/questions/Four%20Number%20Sum)
     * create Map<Integer,List<Integer[]> and List<Integer[]> fourNumberSum
     * two for loop inside one for parent for loop
@@ -92,22 +86,6 @@
     * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to decrease the path/node count.
     * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
 
-- [x] [Boggle Board](https://www.algoexpert.io/questions/Boggle%20Board)
-    *
-
-
-- [x] [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
-    * traverse first one and store in set then traverse second one.
-    * if found in set then return that.
-
-- [x] [1197. Minimum Knight Moves](https://leetcode.com/problems/minimum-knight-moves/)
-  ➡ [Reference](https://www.youtube.com/watch?v=XhYVY6PQSxs)
-  ➡ [Reference](https://leetcode.com/problems/minimum-knight-moves/discuss/401580/Clean-Java-BFS-solution)
-    * Again same graph/matrix traversal using BFS.
-    * Points to note int[][] directions {{2, 1},{2, -1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}, {1, -2}};
-    * x = Math.abs(x); y = Math.abs(y);
-    * and while add neighbour nodes condition should be if (newRow >= -1 && newCol >= -1) to move from (0,0) to (1,1) we
-      need to start from (-1,2) or (1,-1)
 
 - [x] [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
   ➡ [Reference](https://www.youtube.com/watch?v=C4oBXLr3zos)
@@ -119,24 +97,34 @@
 - [x] [304. Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/)
   ➡ [Reference-Actual Solution](https://www.youtube.com/watch?v=rkLDDxOcJxU)
   ➡ [Reference- concept](https://www.youtube.com/watch?v=KE8MQuwE2yA)
-  * get column sum and row sum. left most will hold the sum value of square/rectangele.
-  * remove the left column(dp[row2][col1 - 1]) and above row value(dp[row1 - 1][col2]) and plus (r1-1,c1-1) since its duplicated.
-  * and return dp[row2][col2]
+    * get column sum and row sum. left most will hold the sum value of square/rectangele.
+    * remove the left column(dp[row2][col1 - 1]) and above row value(dp[row1 - 1][col2]) and plus (r1-1,c1-1) since its
+      duplicated.
+    * and return dp[row2][col2]
 
 - [x] [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
   ➡ [Reference](https://www.youtube.com/watch?v=M_dpZ8IS_70)
-  * Concept is similar to levestein distance problem.
-  * The difference is you need to find the common subsequence while traversing in the 2D array.
-  *  if (text1.charAt(i - 1) == text2.charAt(j - 1)) { dp[i][j] = 1 + dp[i - 1][j - 1];
-     } else { dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]); }
+    * Concept is similar to levestein distance problem.
+    * The difference is you need to find the common subsequence while traversing in the 2D array.
+    * if (text1.charAt(i - 1) == text2.charAt(j - 1)) { dp[i][j] = 1 + dp[i - 1][j - 1]; } else { dp[i][j] = Math.max(
+      dp[i - 1][j], dp[i][j - 1]); }
 
 - [x] [583. Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/)
   ➡ [Reference](https://www.youtube.com/watch?v=VSrsUkoG0bk)
-  * Again Concept is similar to levestein distance problem.
-  * The difference is you need to find the number of char you need to delete  while traversing in the 2D array.
-  * if (i == 0 || j == 0) => dp[i][j] = i + j;
-    else if (word1.charAt(i - 1) == word2.charAt(j - 1)) =>  dp[i][j] = dp[i - 1][j - 1];
-    else => dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1]);
+    * Again Concept is similar to levestein distance problem.
+    * The difference is you need to find the number of char you need to delete while traversing in the 2D array.
+    * if (i == 0 || j == 0) => dp[i][j] = i + j; else if (word1.charAt(i - 1) == word2.charAt(j - 1)) =>  dp[i][j] =
+      dp[i - 1][j - 1]; else => dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1]);
 
-- [x] [Dijkstra's Algorithm](https://www.algoexpert.io/questions/dijkstra's-algorithm)    
-  * DijkstrasAlgorithim
+- [x] [Dijkstra's Algorithm](https://www.algoexpert.io/questions/dijkstra's-algorithm)
+    * DijkstrasAlgorithim
+
+- [x] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+    * find odd longest (i-1,i+1) , find even longest (i-1,i) Store longest
+    * Points to remember-> u need to store index int[] odd,int[] even and return new int[]{left + 1, right};
+
+- [x] [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
+  * Use HasSet , then add and remove char ,at the end return set.size() <= 1. 
+  * if (!set.add(s.charAt(i))) {
+     set.remove(s.charAt(i));
+    }

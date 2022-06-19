@@ -326,3 +326,25 @@
 - [x] [867. Transpose Matrix](https://leetcode.com/problems/transpose-matrix/)
   * We don't need any special algorithms to do this.
   * You just need to know what the transpose of a matrix looks like. Rows become columns and vice versa!
+
+- [x] [Boggle Board](https://www.algoexpert.io/questions/Boggle%20Board)
+  *
+
+
+- [x] [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+  * traverse first one and store in set then traverse second one.
+  * if found in set then return that.
+
+- [x] [1197. Minimum Knight Moves](https://leetcode.com/problems/minimum-knight-moves/)
+  ➡ [Reference](https://www.youtube.com/watch?v=XhYVY6PQSxs)
+  ➡ [Reference](https://leetcode.com/problems/minimum-knight-moves/discuss/401580/Clean-Java-BFS-solution)
+  * Again same graph/matrix traversal using BFS.
+  * Points to note int[][] directions {{2, 1},{2, -1}, {1, 2}, {-1, 2}, {-2, 1}, {-2, -1}, {-1, -2}, {1, -2}};
+  * x = Math.abs(x); y = Math.abs(y);
+  * and while add neighbour nodes condition should be if (newRow >= -1 && newCol >= -1) to move from (0,0) to (1,1) we
+    need to start from (-1,2) or (1,-1)
+- [x] [Merge Overlapping Intervals](https://www.algoexpert.io/questions/Merge%20Overlapping%20Intervals)
+  * create List<int[]> merged; int[]currentInterval=intervals[0]; merged.add(currentInterval)
+  * iterate in intervals ; for(int[] nextInterval:intervals) if(currentEnd>nextStart) then currentEnd=Math.max(
+    currentEnd,nextEnd)
+  * else merged.add(nextInterval); currentInterval=nextInterval;
