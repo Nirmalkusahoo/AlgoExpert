@@ -119,12 +119,27 @@
 - [x] [Dijkstra's Algorithm](https://www.algoexpert.io/questions/dijkstra's-algorithm)
     * DijkstrasAlgorithim
 
-- [x] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
-    * find odd longest (i-1,i+1) , find even longest (i-1,i) Store longest
-    * Points to remember-> u need to store index int[] odd,int[] even and return new int[]{left + 1, right};
 
 - [x] [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
-  * Use HasSet , then add and remove char ,at the end return set.size() <= 1. 
-  * if (!set.add(s.charAt(i))) {
-     set.remove(s.charAt(i));
-    }
+    * Use HasSet , then add and remove char ,at the end return set.size() <= 1.
+    * if (!set.add(s.charAt(i))) { set.remove(s.charAt(i)); }
+
+- [x] [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/)
+  ➡ [Reference](https://www.youtube.com/watch?v=D4T2N0yAr20)
+    * Can be done using two pointer.
+    * Points :(list[L].length <= i || list[L].charAt(i) != c) , maxWindow= R-L + 1; upperBound = Math.min(maxWindow, 3)
+  
+- [x] [745. Prefix and Suffix Search](https://leetcode.com/problems/prefix-and-suffix-search/)
+  ➡ [Reference](https://www.youtube.com/watch?v=3JVlE66WxW0&t=0s)
+  ➡ [Reference](https://www.youtube.com/watch?v=X630KoSDkeQ)
+  * Create all the possible strings with prefix + # + suffix and store it in Map. 
+  * and then check if exist return else return -1;
+
+- [x] [1642. Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach/)
+  ➡ [Reference](https://www.youtube.com/watch?v=wAxhnUhXvHE)
+  * Can be done using PriortiyQueue. PriortiyQueue.size shoule be always smaller then ladders
+  * Store height difference in PriortiyQueue if slot available(pq.size() < ladders)
+  * if not then check diff > pq.peek() then br = pq.remove(); pq.offer(diff);
+    * if (bricks - br >= 0) {
+       bricks = bricks - br;
+       }

@@ -348,3 +348,7 @@
   * iterate in intervals ; for(int[] nextInterval:intervals) if(currentEnd>nextStart) then currentEnd=Math.max(
     currentEnd,nextEnd)
   * else merged.add(nextInterval); currentInterval=nextInterval;
+
+- [x] [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
+  * find odd longest (i-1,i+1) , find even longest (i-1,i) Store longest
+  * Points to remember-> u need to store index int[] odd,int[] even and return new int[]{left + 1, right};
