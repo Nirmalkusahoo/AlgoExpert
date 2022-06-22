@@ -87,42 +87,8 @@
     * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
 
 
-- [x] [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
-  ➡ [Reference](https://www.youtube.com/watch?v=C4oBXLr3zos)
-    * Whenever it comes to array creation on sorted array it is wise to start from end.
-    * So again it's a game of two pointer and for loop started from end index.
-    * If you simply consider one element each at a time from the two arrays and insert it and decrease the respective
-      pointer then it's done
-
-- [x] [304. Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/)
-  ➡ [Reference-Actual Solution](https://www.youtube.com/watch?v=rkLDDxOcJxU)
-  ➡ [Reference- concept](https://www.youtube.com/watch?v=KE8MQuwE2yA)
-    * get column sum and row sum. left most will hold the sum value of square/rectangele.
-    * remove the left column(dp[row2][col1 - 1]) and above row value(dp[row1 - 1][col2]) and plus (r1-1,c1-1) since its
-      duplicated.
-    * and return dp[row2][col2]
-
-- [x] [1143. Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
-  ➡ [Reference](https://www.youtube.com/watch?v=M_dpZ8IS_70)
-    * Concept is similar to levestein distance problem.
-    * The difference is you need to find the common subsequence while traversing in the 2D array.
-    * if (text1.charAt(i - 1) == text2.charAt(j - 1)) { dp[i][j] = 1 + dp[i - 1][j - 1]; } else { dp[i][j] = Math.max(
-      dp[i - 1][j], dp[i][j - 1]); }
-
-- [x] [583. Delete Operation for Two Strings](https://leetcode.com/problems/delete-operation-for-two-strings/)
-  ➡ [Reference](https://www.youtube.com/watch?v=VSrsUkoG0bk)
-    * Again Concept is similar to levestein distance problem.
-    * The difference is you need to find the number of char you need to delete while traversing in the 2D array.
-    * if (i == 0 || j == 0) => dp[i][j] = i + j; else if (word1.charAt(i - 1) == word2.charAt(j - 1)) =>  dp[i][j] =
-      dp[i - 1][j - 1]; else => dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1]);
-
 - [x] [Dijkstra's Algorithm](https://www.algoexpert.io/questions/dijkstra's-algorithm)
     * DijkstrasAlgorithim
-
-
-- [x] [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
-    * Use HasSet , then add and remove char ,at the end return set.size() <= 1.
-    * if (!set.add(s.charAt(i))) { set.remove(s.charAt(i)); }
 
 - [x] [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/)
   ➡ [Reference](https://www.youtube.com/watch?v=D4T2N0yAr20)
@@ -143,3 +109,25 @@
     * if (bricks - br >= 0) {
        bricks = bricks - br;
        }
+- [x] [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+  ➡ [Reference](https://www.youtube.com/watch?v=ockS2ZKh7j8&t=316s)
+  * Three solutions - 1. Sorting 2.using MinHeap 3. Quick sort
+  * First Solution: Sort the array and return kth element from end
+  * Crate Min Heap , Iterate the input array and store till heap.size> k , so that it will always store largest k numbers
+  * and then return heap.poll(), so it will return the min number
+  * 3: Using quick sort(not explored in details)
+
+- [x] [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/)
+  ➡ [Reference](https://www.youtube.com/watch?v=rUVg2Vewbo8)
+  * Anhha need to remember the logic a bit.
+```
+  int[] result = new int[n + m];
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                product = product + result[i + j + 1];
+                result[i + j + 1] = product % 10;
+                result[i + j] = result[i + j] + product / 10;
+            }
+        }
+```
