@@ -131,3 +131,14 @@
             }
         }
 ```
+- [x] [630. Course Schedule III](https://leetcode.com/problems/course-schedule-iii/)
+  ➡ [Reference](https://www.youtube.com/watch?v=ey8FxYsFAMU)
+  * ITs a simple problem ,can be solved by sorting and then using priorityQueue
+  * Sort the array based on last days. Create max heap which will return the course with max duration.
+  * if consumed time is less than last day then insert in PQ or else peek from PQ(don't forget time-pq.poll()) and exchange
+  * Arrays.sort(courses, (a, b) -> a[1] == b[1] ? a[0] - b[0] : a[1] - b[1]);
+      PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
+  
+- [x] [346. Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)
+  * Simple problem can be solved using Deque. store in Dqueue till the size given if crosee then remove from begining 
+  * and by this you can keep on finding average. Pont  return (sum * 1.0) / Math.min(size, count);
