@@ -142,3 +142,8 @@
 - [x] [346. Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)
   * Simple problem can be solved using Deque. store in Dqueue till the size given if crosee then remove from begining 
   * and by this you can keep on finding average. Pont  return (sum * 1.0) / Math.min(size, count);
+
+- [x] [2096. Step-By-Step Directions From a Binary Tree Node to Another](https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/)
+  ➡ [Reference](https://www.youtube.com/watch?v=gtsZqtdA6Lc&t=583s)
+  * There were two ways 1.using Graph with BFS but gave TLE(Simple solution)
+  * 2.way- using recursion 

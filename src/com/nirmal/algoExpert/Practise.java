@@ -1,34 +1,42 @@
 package com.nirmal.algoExpert;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Practise {
 
-    public static int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> location = new HashMap<>();
-
-        int[] length = new int[]{0, 1};
-        int startIdx = 0;
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (location.containsKey(c)) {
-                startIdx=Math.max(location.get(c)+1,startIdx);
+    public static String longestPalindrome(String s) {
+        int[] longest = new int[]{0, 1};
+        for (int i = 1; i < s.length(); i++) {
+            int[] odd = findPalindrome(i - 1, i + 1, s);
+            int[] even = findPalindrome(i - 1, i, s);
+            int[] currentLongest = odd[1] - odd[0] > even[1] - even[0] ? odd : even;
+            if (currentLongest[1] - currentLongest[0] > longest[1] - longest[0]) {
+                longest = currentLongest;
             }
-            if (length[1] - length[0] < i + 1 - startIdx) {
-                length[0] = startIdx;
-                length[1] = i + 1;
-            }
-
-            location.put(c, i);
         }
-        return length[1] - length[0];
+        return s.substring(longest[0], longest[1]);
+    }
+
+    public static int[] findPalindrome(int l, int r, String s) {
+        while (l >= 0 && r < s.length()) {
+            if (s.charAt(l) == s.charAt(r)) {
+                l--;
+                r++;
+            } else {
+                return new int[]{++l, r};
+            }
+        }
+        return new int[]{++l, r};
     }
 
 
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring("tmmzuxta"));
+        System.out.println(longestPalindrome("babad"));
+        StringBuilder sb = new StringBuilder();
+        sb.append("L");
+        sb.append("R");
+        System.out.println(sb.toString());
+        System.out.println("U".repeat("LL".length()) + "RL".toString());
     }
+
 
 }
