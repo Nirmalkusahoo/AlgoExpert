@@ -385,3 +385,65 @@
   * So again it's a game of two pointer and for loop started from end index.
   * If you simply consider one element each at a time from the two arrays and insert it and decrease the respective
     pointer then it's done
+
+- [x] [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/)
+  * its Simple east problem , can be solver using 2nodes or single node
+  * in while loop eash time currentNode.val == currentNode.next.val then  currentNode.next = currentNode.next.next;
+- [x] [745. Prefix and Suffix Search](https://leetcode.com/problems/prefix-and-suffix-search/)
+  ➡ [Reference](https://www.youtube.com/watch?v=3JVlE66WxW0&t=0s)
+  ➡ [Reference](https://www.youtube.com/watch?v=X630KoSDkeQ)
+  * Create all the possible strings with prefix + # + suffix and store it in Map.
+  * and then check if exist return else return -1;
+
+- [x] [346. Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)
+  * Simple problem can be solved using Deque. store in Dqueue till the size given if crosee then remove from begining
+  * and by this you can keep on finding average. Pont return (sum * 1.0) / Math.min(size, count);
+
+- [x] [2096. Step-By-Step Directions From a Binary Tree Node to Another](https://leetcode.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/)
+  ➡ [Reference](https://www.youtube.com/watch?v=gtsZqtdA6Lc&t=583s)
+  * There were two ways 1.using Graph with BFS but gave TLE(Simple solution)
+  * 2.way- using recursion
+
+- [x] [665. Non-decreasing Array](https://leetcode.com/problems/non-decreasing-array/)
+  ➡ [Reference](https://www.youtube.com/watch?v=iL7oSNc3OXA)
+  * some logic you need to remember bro...
+
+- [x] [1423. Maximum Points You Can Obtain from Cards](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)
+  ➡ [Code](https://www.youtube.com/watch?v=U0utLw_vWGM)
+  ➡ [Understood from](https://www.youtube.com/watch?v=TsA4vbtfCvo)
+  * Its a siliding window problem. You need to find out the total sum and the window sum.
+  * Now in a for loop you need increase windowSum(- from back , +from front) and subtract from total sum
+  * and save Max(ans, totalSum-windowSum)
+- [x] [1268. Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/)
+  ➡ [Reference](https://www.youtube.com/watch?v=D4T2N0yAr20)
+  * Can be done using two pointer.
+  * Points :(list[L].length <= i || list[L].charAt(i) != c) , maxWindow= R-L + 1; upperBound = Math.min(maxWindow, 3)
+
+
+
+- [x] [1642. Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach/)
+  ➡ [Reference](https://www.youtube.com/watch?v=wAxhnUhXvHE)
+  * Can be done using PriortiyQueue. PriortiyQueue.size shoule be always smaller then ladders
+  * Store height difference in PriortiyQueue if slot available(pq.size() < ladders)
+  * if not then check diff > pq.peek() then br = pq.remove(); pq.offer(diff);
+    * if (bricks - br >= 0) { bricks = bricks - br; }
+- [x] [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
+  ➡ [Reference](https://www.youtube.com/watch?v=ockS2ZKh7j8&t=316s)
+  * Three solutions - 1. Sorting 2.using MinHeap 3. Quick sort
+  * First Solution: Sort the array and return kth element from end
+  * Crate Min Heap , Iterate the input array and store till heap.size> k , so that it will always store largest k
+    numbers
+  * and then return heap.poll(), so it will return the min number
+  * 3: Using quick sort(not explored in details)
+
+- [x] [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
+  ➡ [Reference](https://www.youtube.com/watch?v=CABaqOkWbgQ)
+  * It's a simple matrix traversal program using BFS where we need to find next 8 direction positions.
+  * Add first node -> queue.offer(new int[]{0, 0, 1}), here third value is node/path count and make first node as
+    visited by marking grid[0][0] = 1;
+  * now while loop thorough queue and again in inner while loop through size.
+  * Take row and col value if (r == height - 1 && c == width - 1) return path;
+  * count 8 direction nodes int[][] dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {1, 1}, {-1, -1}, {-1, 1}, {1, -1}};
+  * Add it to queue only if if (row >= 0 && row < height && col >= 0 && col < width && grid[row][col] == 0)
+  * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to decrease the path/node count.
+  * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
