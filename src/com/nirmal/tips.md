@@ -102,14 +102,22 @@
       exchange
     * Arrays.sort(courses, (a, b) -> a[1] == b[1] ? a[0] - b[0] : a[1] - b[1]); PriorityQueue<Integer> pq = new
       PriorityQueue<>((a, b) -> b - a);
-  
+
 - [x] [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
-  * Its not that complex, but just that simple logic u need to remember.
-  * Sort the array based on height.   disks.sort((disk1, disk2) -> disk1[2].compareTo(disk2[2]));
-  * Create height array fill with all disk initial height.
-  * now iterate and store the maxHeight if (heights[i] <= heights[j] + currentDisk[2]) in height array if condition satisfies.
-  * and also you need to store last max height index sequences[i] = j;
-  * and while building sequence you need to use sequences array.
+    * Its not that complex, but just that simple logic u need to remember.
+    * Sort the array based on height. disks.sort((disk1, disk2) -> disk1[2].compareTo(disk2[2]));
+    * Create height array fill with all disk initial height.
+    * now iterate and store the maxHeight if (heights[i] <= heights[j] + currentDisk[2]) in height array if condition
+      satisfies.
+    * and also you need to store last max height index sequences[i] = j;
+    * and while building sequence you need to use sequences array.
 
 - [x] [1691. Maximum Height by Stacking Cuboids](https://leetcode.com/problems/maximum-height-by-stacking-cuboids/)
-  * Some confusion is there but its similar to aLogExpert [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
+    * Some confusion is there but its similar to
+      aLogExpert [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
+
+- [x] [maximize-expression](https://www.algoexpert.io/questions/maximize-expression)
+    * Again a simple problem which looks complex ,but post explanation it looks awsome.
+    * You just need to count the last maximum value while iterating through the array.
+    * Since its a-b+c-d ,4 expression ,so you need to do in 4 for loop to find out last expression max value for 4
+      different expression 
