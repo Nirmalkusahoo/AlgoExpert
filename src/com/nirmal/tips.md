@@ -121,3 +121,7 @@
     * You just need to count the last maximum value while iterating through the array.
     * Since its a-b+c-d ,4 expression ,so you need to do in 4 for loop to find out last expression max value for 4
       different expression 
+  
+- [x] [numbers-in-pi](https://www.algoexpert.io/questions/numbers-in-pi)
+  * See solution code is simple , you just need to map the recursion call and there closing conditions and retrun value.
+  * And from the return value calculate ur logic. that's it. But still since its first time ..so bit unhappy.
