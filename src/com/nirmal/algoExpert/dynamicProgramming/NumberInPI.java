@@ -16,7 +16,7 @@ public class NumberInPI {
         Map<Integer, Integer> cache = new HashMap<>();
 
         int minSpaces = getMinSpaces(pi, numberStable, cache, 0);
-        return minSpaces == Integer.MAX_VAL UE ? -1 : minSpaces;
+        return minSpaces == Integer.MAX_VALUE ? -1 : minSpaces;
     }
 
     public static int getMinSpaces(String pi, Set<String> numberStable, Map<Integer, Integer> cache, int idx) {

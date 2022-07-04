@@ -120,8 +120,17 @@
     * Again a simple problem which looks complex ,but post explanation it looks awsome.
     * You just need to count the last maximum value while iterating through the array.
     * Since its a-b+c-d ,4 expression ,so you need to do in 4 for loop to find out last expression max value for 4
-      different expression 
-  
+      different expression
+
 - [x] [numbers-in-pi](https://www.algoexpert.io/questions/numbers-in-pi)
-  * See solution code is simple , you just need to map the recursion call and there closing conditions and retrun value.
-  * And from the return value calculate ur logic. that's it. But still since its first time ..so bit unhappy.
+    * See solution code is simple , you just need to map the recursion call and there closing conditions and retrun
+      value.
+    * And from the return value calculate ur logic. that's it. But still since its first time ..so bit unhappy.
+
+- [x] [539. Minimum Time Difference](https://leetcode.com/problems/minimum-time-difference/)
+  ➡ [Reference](https://www.youtube.com/watch?v=c5ecNf7JM1Q) [Solution from ](https://leetcode.com/problems/minimum-time-difference/discuss/100640/Verbose-Java-Solution-Bucket)
+    * It's a very interesting problem. You need to rember this simple logic.
+    * convert all time to boolean array times[ hr * 60 + min]=true;
+    * iterate array and find first = Math.min(first, i), last = Math.max(last, i) and min = Math.min(min, i - prev);
+      store prev =i always.
+    * at the end return min = Math.min(min, 1440 - last + first);
