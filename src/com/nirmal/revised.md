@@ -447,3 +447,27 @@
   * Add it to queue only if if (row >= 0 && row < height && col >= 0 && col < width && grid[row][col] == 0)
   * If condition true then queue.add(new int[]{row, col, path + 1}), don't forget to decrease the path/node count.
   * And also don't forget to mark the node as visited. grid[newRow][newCol] = 1; And at the end of return -1;
+- [x] [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/)
+  ➡ [Reference](https://www.youtube.com/watch?v=rUVg2Vewbo8)
+  * Anhha need to remember the logic a bit.
+
+```
+  int[] result = new int[n + m];
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
+                product = product + result[i + j + 1];
+                result[i + j + 1] = product % 10;
+                result[i + j] = result[i + j] + product / 10;
+            }
+        }
+```
+
+- [x] [630. Course Schedule III](https://leetcode.com/problems/course-schedule-iii/)
+  ➡ [Reference](https://www.youtube.com/watch?v=ey8FxYsFAMU)
+  * ITs a simple problem ,can be solved by sorting and then using priorityQueue
+  * Sort the array based on last days. Create max heap which will return the course with max duration.
+  * if consumed time is less than last day then insert in PQ or else peek from PQ(don't forget time-pq.poll()) and
+    exchange
+  * Arrays.sort(courses, (a, b) -> a[1] == b[1] ? a[0] - b[0] : a[1] - b[1]); PriorityQueue<Integer> pq = new
+    PriorityQueue<>((a, b) -> b - a);

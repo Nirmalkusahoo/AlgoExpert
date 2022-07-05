@@ -1,0 +1,3 @@
+1. Burn the binary tree starting from the target node
+2.all elements are repeated twice except one in an array and the array is sort find the element appearing once.
+3. alien dictionary topological sorting

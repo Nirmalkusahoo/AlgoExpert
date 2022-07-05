@@ -78,31 +78,6 @@
 - [x] [Dijkstra's Algorithm](https://www.algoexpert.io/questions/dijkstra's-algorithm)
     * DijkstrasAlgorithim
 
-- [x] [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/)
-  ➡ [Reference](https://www.youtube.com/watch?v=rUVg2Vewbo8)
-    * Anhha need to remember the logic a bit.
-
-```
-  int[] result = new int[n + m];
-        for (int i = m - 1; i >= 0; i--) {
-            for (int j = n - 1; j >= 0; j--) {
-                int product = (num1.charAt(i) - '0') * (num2.charAt(j) - '0');
-                product = product + result[i + j + 1];
-                result[i + j + 1] = product % 10;
-                result[i + j] = result[i + j] + product / 10;
-            }
-        }
-```
-
-- [x] [630. Course Schedule III](https://leetcode.com/problems/course-schedule-iii/)
-  ➡ [Reference](https://www.youtube.com/watch?v=ey8FxYsFAMU)
-    * ITs a simple problem ,can be solved by sorting and then using priorityQueue
-    * Sort the array based on last days. Create max heap which will return the course with max duration.
-    * if consumed time is less than last day then insert in PQ or else peek from PQ(don't forget time-pq.poll()) and
-      exchange
-    * Arrays.sort(courses, (a, b) -> a[1] == b[1] ? a[0] - b[0] : a[1] - b[1]); PriorityQueue<Integer> pq = new
-      PriorityQueue<>((a, b) -> b - a);
-
 - [x] [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
     * Its not that complex, but just that simple logic u need to remember.
     * Sort the array based on height. disks.sort((disk1, disk2) -> disk1[2].compareTo(disk2[2]));
@@ -134,3 +109,7 @@
     * iterate array and find first = Math.min(first, i), last = Math.max(last, i) and min = Math.min(min, i - prev);
       store prev =i always.
     * at the end return min = Math.min(min, 1440 - last + first);
+
+- [x] [All kinds of node depths](https://www.algoexpert.io/questions/all-kinds-of-node-depths)
+    * Create stack insert each node and on pull call nodeDepthRecursive() method and keep on adding returned value.
+    * recursive method logic=> return depth + findDepth(root.left, depth + 1) + findDepth(root.right, depth + 1);
