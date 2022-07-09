@@ -78,18 +78,6 @@
 - [x] [Dijkstra's Algorithm](https://www.algoexpert.io/questions/dijkstra's-algorithm)
     * DijkstrasAlgorithim
 
-- [x] [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
-    * Its not that complex, but just that simple logic u need to remember.
-    * Sort the array based on height. disks.sort((disk1, disk2) -> disk1[2].compareTo(disk2[2]));
-    * Create height array fill with all disk initial height.
-    * now iterate and store the maxHeight if (heights[i] <= heights[j] + currentDisk[2]) in height array if condition
-      satisfies.
-    * and also you need to store last max height index sequences[i] = j;
-    * and while building sequence you need to use sequences array.
-
-- [x] [1691. Maximum Height by Stacking Cuboids](https://leetcode.com/problems/maximum-height-by-stacking-cuboids/)
-    * Some confusion is there but its similar to
-      aLogExpert [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
 
 - [x] [maximize-expression](https://www.algoexpert.io/questions/maximize-expression)
     * Again a simple problem which looks complex ,but post explanation it looks awsome.
@@ -102,14 +90,17 @@
       value.
     * And from the return value calculate ur logic. that's it. But still since its first time ..so bit unhappy.
 
-- [x] [539. Minimum Time Difference](https://leetcode.com/problems/minimum-time-difference/)
-  ➡ [Reference](https://www.youtube.com/watch?v=c5ecNf7JM1Q) [Solution from ](https://leetcode.com/problems/minimum-time-difference/discuss/100640/Verbose-Java-Solution-Bucket)
-    * It's a very interesting problem. You need to rember this simple logic.
-    * convert all time to boolean array times[ hr * 60 + min]=true;
-    * iterate array and find first = Math.min(first, i), last = Math.max(last, i) and min = Math.min(min, i - prev);
-      store prev =i always.
-    * at the end return min = Math.min(min, 1440 - last + first);
-
 - [x] [All kinds of node depths](https://www.algoexpert.io/questions/all-kinds-of-node-depths)
     * Create stack insert each node and on pull call nodeDepthRecursive() method and keep on adding returned value.
     * recursive method logic=> return depth + findDepth(root.left, depth + 1) + findDepth(root.right, depth + 1);
+
+- [x] [subarray-sort](https://www.algoexpert.io/questions/subarray-sort)
+  * find minOutOfOrder and maxOutOfOrder number by iterating .int minOutOfOrder = Integer.MAX_VALUE; and Int.MIN for max
+  * minOutOfOrder = Math.min(minOutOfOrder, num);  maxOutOfOrder = Math.max(maxOutOfOrder, num);
+  * find the index of minOutOfOrder and maxOutOfOrder
+
+- [x] [Largest range](https://www.algoexpert.io/questions/largest-range)
+  * put all the number in Map<Integer, Boolean> as Map.put(num, true); 
+  * visit all num if it is not false in map. and do folowing things
+  * make numMap.put(num, false); currentLength = 1;  left = num - 1;  right = num + 1;
+  * run two while loop ,increase the length and store the number as false and then count the max length.
