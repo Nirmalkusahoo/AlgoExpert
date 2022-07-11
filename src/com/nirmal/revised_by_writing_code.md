@@ -1,0 +1,40 @@
+- [x] [Minimum Area Rectangle](https://www.algoexpert.io/questions/Minimum%20Area%20Rectangle)
+  * One of the easiest solution which looks complex
+  * Create a HasSet(pointSet) from int[][] points input using X,Y of coordinates. set.add(String.valueOf(x) + ":" +
+    String.valueOf(y))[convert method]
+  * run two for loop and get int p1x = points[firstIdx][0]; int p1y = points[firstIdx][1]; int p2x =
+    points[secondIdx][0]; int p2y = points[secondIdx][1];
+  * check any coordinates shouldn't be in same axis . boolean isPointMatches = p1x == p2x || p1y == p2y; if (
+    isPointMatches) { continue;}
+  * Then find opposite/diagonal points
+  * boolean isOppositeToP1Exist = pointSet.contains(convert(p1x, p2y)); boolean isOppositeToP2Exist =
+    pointSet.contains(convert(p2x, p1y));
+  * if(isOppositeToP1Exist && isOppositeToP2Exist) then find the area=Math.abs(p1x - p2x)* Math.abs(p1y - p2y); and
+    store minArea
+
+- [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
+  * Create a map and store all number with boolean true map.put(num,true)
+  * Iterate through num array and check if num is not visited then assign currentLength=1
+  * then left=num-1 and right=num+1
+  * in while loop check if left is present in map then currentLength++; map.put(left,false); left-- and do same for
+    right
+  * update the if currentLength> largest then update int[] bestRange={left+1 , right-1}
+
+- [x] [Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
+  * i=1; while(i<arr.length-1) if(array[i - 1] < array[i] && array[i] > array[i + 1]) booelan isPeak=true;
+  * if(!isPeak)= i++ ;continue
+  * left=i-2; right=i+2; while(left >= 0 && array[left] < array[left + 1)   left=left-1; similarly for while( right <
+    array.length && array[right - 1] < array[right])
+  * int currenLength=right-left-1 and compare with maxLength and store. new i=right and after intital while loop
+    return maxLength;
+
+- [x] [Monotonic Array](https://www.algoexpert.io/questions/Monotonic%20Array)
+  * With two boolean variable isIncreasingOrder=true , isInDecreasingOrder=true it can be done
+  * Either arr[i]< arr[i+1] always(then isInDecreasingOrder=false;) OR arr[i]> arr[i+1] always (then
+    isIncreasingOrder=false)
+  * and return isIncreasingOrder || isInDecreasingOrder;
+
+- [x] [Move Element To End](https://www.algoexpert.io/questions/Move%20Element%20To%20End)
+  * Can be done with two pointer L ,R while(L<R);
+  * in nested while(L<R && array.get(R) == elementToBeMoved) R--;
+  * then if(array.get(L) == toMove) swap (L,R) and L++;

@@ -74,16 +74,6 @@
                 
         return count[n][5];
 ``` 
-- [x] [Monotonic Array](https://www.algoexpert.io/questions/Monotonic%20Array)
-  * With two boolean variable isIncreasingOrder=true , isInDecreasingOrder=true it can be done
-  * Either arr[i]< arr[i+1] always(then isInDecreasingOrder=false;) OR arr[i]> arr[i+1] always (then
-    isIncreasingOrder=false)
-  * and return isIncreasingOrder || isInDecreasingOrder;
-
-- [x] [Move Element To End](https://www.algoexpert.io/questions/Move%20Element%20To%20End)
-  * Can be done with two pointer L ,R while(L<R);
-  * in nested while(L<R && array.get(R) == elementToBeMoved) R--;
-  * then if(array.get(L) == toMove) swap (L,R) and L++;
 
 - [x] [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
   ➡ [Reference](https://www.youtube.com/watch?v=GSJuwQzKSnI)
@@ -175,19 +165,6 @@
     through positive integers.
   * And then check if matrix contains Negatives value then return -1 otherwise passes;
 
-- [x] [Minimum Area Rectangle](https://www.algoexpert.io/questions/Minimum%20Area%20Rectangle)
-  * One of the easiest solution which looks complex
-  * Create a HasSet(pointSet) from int[][] points input using X,Y of coordinates. set.add(String.valueOf(x) + ":" +
-    String.valueOf(y))[convert method]
-  * run two for loop and get int p1x = points[firstIdx][0]; int p1y = points[firstIdx][1]; int p2x =
-    points[secondIdx][0]; int p2y = points[secondIdx][1];
-  * check any coordinates shouldn't be in same axis . boolean isPointMatches = p1x == p2x || p1y == p2y; if (
-    isPointMatches) { continue;}
-  * Then find opposite/diagonal points
-  * boolean isOppositeToP1Exist = pointSet.contains(convert(p1x, p2y)); boolean isOppositeToP2Exist =
-    pointSet.contains(convert(p2x, p1y));
-  * if(isOppositeToP1Exist && isOppositeToP2Exist) then find the area=Math.abs(p1x - p2x)* Math.abs(p1y - p2y); and
-    store minArea
 
 - [x] [1379. Find a Corresponding Node of a Binary Tree in a Clone of That Tree](https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/)
   ➡ [Reference](https://www.youtube.com/watch?v=Zi9btldKyTM)
@@ -195,13 +172,6 @@
   * Do a InOrder traversal and also check if targetNode==original then store it in resultNode.
   * And at the end return resultNode
 
-- [x] [Longest Range](https://www.algoexpert.io/questions/Largest%20Range)
-  * Create a map and store all number with boolean true map.put(num,true)
-  * Iterate through num array and check if num is not visited then assign currentLength=1
-  * then left=num-1 and right=num+1
-  * in while loop check if left is present in map then currentLength++; map.put(left,false); left-- and do same for
-    right
-  * update the if currentLength> largest then update int[] bestRange={left+1 , right-1}
 
 - [x] [Waterfall Streams](https://www.algoexpert.io/questions/Waterfall%20Streams)
   * Iteration of two rows will lead us to solution. rowAbove=array[0], rowAbove[source]=-1;
@@ -236,13 +206,6 @@
         else { finalValue[i] = -100 * value;}}
     return finalValue;
 
-- [x] [Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
-  * i=1; while(i<arr.length-1) if(array[i - 1] < array[i] && array[i] > array[i + 1]) booelan isPeak=true;
-  * if(!isPeak)= i++ ;continue
-  * left=i-2; right=i+2; while(left >= 0 && array[left] < array[left + 1)   left=left-1; similarly for while( right <
-    array.length && array[right - 1] < array[right])
-  * int currenLength=right-left-1 and compare with maxLength and store. new i=right and after intital while loop
-    return maxLength;
 
 
 - [x] [694. Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/)
@@ -493,3 +456,11 @@
   * Some confusion is there but its similar to
     aLogExpert [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
 
+- [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
+  ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
+  * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
+
+- [x] [numbers-in-pi](https://www.algoexpert.io/questions/numbers-in-pi)
+  * See solution code is simple , you just need to map the recursion call and there closing conditions and retrun
+    value.
+  * And from the return value calculate ur logic. that's it. But still since its first time ..so bit unhappy.

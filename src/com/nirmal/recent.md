@@ -1,10 +1,5 @@
 ## All Program solutions in Brief
 
-- [x] [845. Longest Mountain in Array](https://leetcode.com/problems/longest-mountain-in-array/)
-  ➡ [Reference](https://www.algoexpert.io/questions/Longest%20Peak)
-    * Same as [Algo expert - Longest Peak](https://www.algoexpert.io/questions/Longest%20Peak)
-
-
 - [x] [Four Number Sum](https://www.algoexpert.io/questions/Four%20Number%20Sum)
     * create Map<Integer,List<Integer[]> and List<Integer[]> fourNumberSum
     * two for loop inside one for parent for loop
@@ -85,22 +80,48 @@
     * Since its a-b+c-d ,4 expression ,so you need to do in 4 for loop to find out last expression max value for 4
       different expression
 
-- [x] [numbers-in-pi](https://www.algoexpert.io/questions/numbers-in-pi)
-    * See solution code is simple , you just need to map the recursion call and there closing conditions and retrun
-      value.
-    * And from the return value calculate ur logic. that's it. But still since its first time ..so bit unhappy.
-
 - [x] [All kinds of node depths](https://www.algoexpert.io/questions/all-kinds-of-node-depths)
     * Create stack insert each node and on pull call nodeDepthRecursive() method and keep on adding returned value.
     * recursive method logic=> return depth + findDepth(root.left, depth + 1) + findDepth(root.right, depth + 1);
 
 - [x] [subarray-sort](https://www.algoexpert.io/questions/subarray-sort)
-  * find minOutOfOrder and maxOutOfOrder number by iterating .int minOutOfOrder = Integer.MAX_VALUE; and Int.MIN for max
-  * minOutOfOrder = Math.min(minOutOfOrder, num);  maxOutOfOrder = Math.max(maxOutOfOrder, num);
-  * find the index of minOutOfOrder and maxOutOfOrder
+    * find minOutOfOrder and maxOutOfOrder number by iterating .int minOutOfOrder = Integer.MAX_VALUE; and Int.MIN for
+      max
+    * minOutOfOrder = Math.min(minOutOfOrder, num); maxOutOfOrder = Math.max(maxOutOfOrder, num);
+    * find the index of minOutOfOrder and maxOutOfOrder
 
 - [x] [Largest range](https://www.algoexpert.io/questions/largest-range)
-  * put all the number in Map<Integer, Boolean> as Map.put(num, true); 
-  * visit all num if it is not false in map. and do folowing things
-  * make numMap.put(num, false); currentLength = 1;  left = num - 1;  right = num + 1;
-  * run two while loop ,increase the length and store the number as false and then count the max length.
+    * put all the number in Map<Integer, Boolean> as Map.put(num, true);
+    * visit all num if it is not false in map. and do folowing things
+    * make numMap.put(num, false); currentLength = 1; left = num - 1; right = num + 1;
+    * run two while loop ,increase the length and store the number as false and then count the max length.
+
+- [x] [298.Binary Tree Longest Consecutive ](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/)
+  ➡ [Reference](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/solution/)
+    * Use a variable length to store the current consecutive path length and pass it down the tree.
+    * As we traverse, we compare the current node with its parent node to determine if it is consecutive. If not, we
+      reset the length. and every step store the maxlength
+
+- [x] [zigzag-traverse](https://www.algoexpert.io/questions/zigzag-traverse)
+    * Need to remember first half of logic and then write reverse of it in next part. and while writing you can compare
+      the flow with logic
+
+```
+            if (isGoingDown) {
+                if (col == 0 || row == maxRow) {
+                    isGoingDown = false;
+                    if (row == maxRow) {
+                        col++;
+                    } else {
+                        row++;
+                    }
+                } else {
+                    row++;
+                    col--;
+                }
+            }
+```
+
+- [x] [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
+    * **_Yehh did it by my own_**. Can be done using two pointer and since they want unique so use Set.
+    * if two pointer num matches add to set else increse the pointer for the num which is smaller

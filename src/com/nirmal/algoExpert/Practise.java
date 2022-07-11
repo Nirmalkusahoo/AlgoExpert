@@ -1,41 +1,59 @@
 package com.nirmal.algoExpert;
 
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Practise {
+    Set<String> pointSet = new HashSet<>();
+    int minArea = Integer.MAX_VALUE;
 
-    public static String longestPalindrome(String s) {
-        int[] longest = new int[]{0, 1};
-        for (int i = 1; i < s.length(); i++) {
-            int[] odd = findPalindrome(i - 1, i + 1, s);
-            int[] even = findPalindrome(i - 1, i, s);
-            int[] currentLongest = odd[1] - odd[0] > even[1] - even[0] ? odd : even;
-            if (currentLongest[1] - currentLongest[0] > longest[1] - longest[0]) {
-                longest = currentLongest;
+    public int minimumAreaRectangle(int[][] points) {
+        // Write your code here.
+        prepareSet(points);
+
+        for (int i = 0; i < points.length; i++) {
+            int p1x = points[i][0];
+            int p1y = points[i][1];
+            for (int j = 0; j < i; j++) {
+                int p2x = points[j][0];
+                int p2y = points[j][1];
+
+                boolean sharedSameIndex = p1x == p2x || p1y == p2y;
+                if (sharedSameIndex) {
+                    continue;
+                }
+                boolean firstOppositeFound = pointSet.contains(format(p1x, p2y));
+                boolean secondOppositeFound = pointSet.contains(format(p2x, p1y));
+                if (firstOppositeFound && secondOppositeFound) {
+                    int area = Math.abs(p1x - p2x) * Math.abs(p1y - p2y);
+                    minArea = Math.min(minArea, area);
+                }
+
             }
         }
-        return s.substring(longest[0], longest[1]);
+        return minArea == Integer.MAX_VALUE ? 0 : minArea;
     }
 
-    public static int[] findPalindrome(int l, int r, String s) {
-        while (l >= 0 && r < s.length()) {
-            if (s.charAt(l) == s.charAt(r)) {
-                l--;
-                r++;
-            } else {
-                return new int[]{++l, r};
-            }
+    public void prepareSet(int[][] points) {
+        for (int i = 0; i < points.length; i++) {
+            int[] point = points[i];
+            int x = point[0];
+            int y = point[1];
+            pointSet.add(format(x, y));
         }
-        return new int[]{++l, r};
     }
 
+    public String format(int x, int y) {
+        return String.valueOf(x) + ":" + String.valueOf(y);
+    }
 
     public static void main(String[] args) {
-        System.out.println(longestPalindrome("babad"));
-        StringBuilder sb = new StringBuilder();
-        sb.append("L");
-        sb.append("R");
-        System.out.println(sb.toString());
-        System.out.println("U".repeat("LL".length()) + "RL".toString());
+        List<Integer> array = Arrays.asList(3, 3, 3, 3, 3);
+        List<Integer> sequence = Arrays.asList(22, 25, 6);
+        System.out.println(intersection(new int[]{1, 2, 2, 1}, new int[]{2, 2}));
     }
 
 
