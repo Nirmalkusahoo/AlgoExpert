@@ -216,13 +216,7 @@
   * Do BFS on each node and store the node row and col value in StringBuilder.append(row - baseRow).append(col -
     baseCol)
   * Find the neighbour nodes and add it to queue only if they are in boundary and a LAND.
-
-- [x] [Line Through Points](https://www.algoexpert.io/questions/Line%20Through%20Points)
-  ➡ [Reference](https://www.algoexpert.io/questions/Line%20Through%20Points)
-  * Run two for loop and take point1 and point2; and create map inside first for loop
-  * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
-  * Now make ket using rise and run and store it in map and out side the second for loop find the currentMax
-  * and store maxPointsInALine = Math.max(currentMax, maxPointsInALine);
+  
 
 - [x] [63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
   ➡ [Reference](https://www.youtube.com/watch?v=nZSXWXzn1aM)
@@ -464,3 +458,17 @@
   * See solution code is simple , you just need to map the recursion call and there closing conditions and retrun
     value.
   * And from the return value calculate ur logic. that's it. But still since its first time ..so bit unhappy.
+
+- [x] [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
+  * **_Yehh did it by my own_**. Can be done using two pointer and since they want unique so use Set.
+  * if two pointer num matches add to set else increse the pointer for the num which is smaller
+
+- [x] [maximize-expression](https://www.algoexpert.io/questions/maximize-expression)
+  * Again a simple problem which looks complex ,but post explanation it looks awsome.
+  * You just need to count the last maximum value while iterating through the array.
+  * Since its a-b+c-d ,4 expression ,so you need to do in 4 for loop to find out last expression max value for 4
+    different expression
+
+- [x] [All kinds of node depths](https://www.algoexpert.io/questions/all-kinds-of-node-depths)
+  * Create stack insert each node and on pull call nodeDepthRecursive() method and keep on adding returned value.
+  * recursive method logic=> return depth + findDepth(root.left, depth + 1) + findDepth(root.right, depth + 1);

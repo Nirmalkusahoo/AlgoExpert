@@ -20,13 +20,6 @@
           }
       }
 
-- [x] [Zigzag Traverse](https://www.algoexpert.io/questions/Zigzag%20Traverse)
-    * first find the row and col value at which direction is changing
-    * while(row and col values are in boundry)
-    * while going up col==0 || row==maxRow; again if(row==maxRow) col++ else row++;
-    * while goingDown row==0 || col=== maxCol ; again if(col==maxCol) row++ else col++
-    * Also you need boolean isGoingDown=true and need to update
-
 - [x] [Smallest Difference](https://www.algoexpert.io/questions/Smallest%20Difference)
     * it can be solved by sorting two array and having two pointer for two array and increase pointer for smallest array
       element
@@ -69,32 +62,15 @@
       return hoursToString + ":" + minToString;
   ```
 
-
 - [x] [Dijkstra's Algorithm](https://www.algoexpert.io/questions/dijkstra's-algorithm)
     * DijkstrasAlgorithim
 
-
-- [x] [maximize-expression](https://www.algoexpert.io/questions/maximize-expression)
-    * Again a simple problem which looks complex ,but post explanation it looks awsome.
-    * You just need to count the last maximum value while iterating through the array.
-    * Since its a-b+c-d ,4 expression ,so you need to do in 4 for loop to find out last expression max value for 4
-      different expression
-
-- [x] [All kinds of node depths](https://www.algoexpert.io/questions/all-kinds-of-node-depths)
-    * Create stack insert each node and on pull call nodeDepthRecursive() method and keep on adding returned value.
-    * recursive method logic=> return depth + findDepth(root.left, depth + 1) + findDepth(root.right, depth + 1);
 
 - [x] [subarray-sort](https://www.algoexpert.io/questions/subarray-sort)
     * find minOutOfOrder and maxOutOfOrder number by iterating .int minOutOfOrder = Integer.MAX_VALUE; and Int.MIN for
       max
     * minOutOfOrder = Math.min(minOutOfOrder, num); maxOutOfOrder = Math.max(maxOutOfOrder, num);
     * find the index of minOutOfOrder and maxOutOfOrder
-
-- [x] [Largest range](https://www.algoexpert.io/questions/largest-range)
-    * put all the number in Map<Integer, Boolean> as Map.put(num, true);
-    * visit all num if it is not false in map. and do folowing things
-    * make numMap.put(num, false); currentLength = 1; left = num - 1; right = num + 1;
-    * run two while loop ,increase the length and store the number as false and then count the max length.
 
 - [x] [298.Binary Tree Longest Consecutive ](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/)
   ➡ [Reference](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/solution/)
@@ -122,6 +98,3 @@
             }
 ```
 
-- [x] [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
-    * **_Yehh did it by my own_**. Can be done using two pointer and since they want unique so use Set.
-    * if two pointer num matches add to set else increse the pointer for the num which is smaller
