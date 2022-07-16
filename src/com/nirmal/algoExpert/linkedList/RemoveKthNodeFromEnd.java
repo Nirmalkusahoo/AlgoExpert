@@ -20,7 +20,8 @@ public class RemoveKthNodeFromEnd {
             counter++;
         }
         if(second ==null){
-            head=head.next;
+            head.value = head.next.value;
+            head.next = head.next.next;
             return;
         }
         while(second.next !=null){

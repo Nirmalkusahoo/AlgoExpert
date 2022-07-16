@@ -472,3 +472,53 @@
 - [x] [All kinds of node depths](https://www.algoexpert.io/questions/all-kinds-of-node-depths)
   * Create stack insert each node and on pull call nodeDepthRecursive() method and keep on adding returned value.
   * recursive method logic=> return depth + findDepth(root.left, depth + 1) + findDepth(root.right, depth + 1);
+- [x] [Four Number Sum](https://www.algoexpert.io/questions/Four%20Number%20Sum)
+  * create Map<Integer,List<Integer[]> and List<Integer[]> fourNumberSum
+  * two for loop inside one for parent for loop
+  ```
+  for (int i = 1; i < array.length - 1; i++) {
+          for (int j = i+1; j < array.length; j++) {
+              int currentSum = array[i] + array[j]; int diff = targetSum - currentSum;
+              if (allPairSum.containsKey(diff)) {
+                  for (Integer[] pair : allPairSum.get(diff)) {
+                      Integer[] fourSum = {pair[0], pair[1], array[i], array[j]}; fourSumList.add(fourSum);
+          } }}
+  
+          for (int k = 0; k < i; k++) {
+              int currentSum = array[i] + array[k]; Integer[] pair = {array[i], array[k]};
+              if (!allPairSum.containsKey(currentSum)) {
+                  List<Integer[]> pairGroup = new ArrayList<>(); pairGroup.add(pair); allPairSum.put(currentSum, pairGroup);
+              } else  { allPairSum.get(currentSum).add(pair) };
+          }
+      }
+- [x] [subarray-sort](https://www.algoexpert.io/questions/subarray-sort)
+  * find minOutOfOrder and maxOutOfOrder number by iterating .int minOutOfOrder = Integer.MAX_VALUE; and Int.MIN for
+    max
+  * minOutOfOrder = Math.min(minOutOfOrder, num); maxOutOfOrder = Math.max(maxOutOfOrder, num);
+  * find the index of minOutOfOrder and maxOutOfOrder
+
+- [x] [298.Binary Tree Longest Consecutive ](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/)
+  ➡ [Reference](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/solution/)
+  * Use a variable length to store the current consecutive path length and pass it down the tree.
+  * As we traverse, we compare the current node with its parent node to determine if it is consecutive. If not, we
+    reset the length. and every step store the maxlength
+
+- [x] [zigzag-traverse](https://www.algoexpert.io/questions/zigzag-traverse)
+  * Need to remember first half of logic and then write reverse of it in next part. and while writing you can compare
+    the flow with logic
+
+```
+            if (isGoingDown) {
+                if (col == 0 || row == maxRow) {
+                    isGoingDown = false;
+                    if (row == maxRow) {
+                        col++;
+                    } else {
+                        row++;
+                    }
+                } else {
+                    row++;
+                    col--;
+                }
+            }
+```
