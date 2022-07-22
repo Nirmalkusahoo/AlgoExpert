@@ -2,6 +2,7 @@ package com.nirmal.algoExpert.heaps;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 import java.util.function.BiFunction;
 
 public class ContinuousMedian {
@@ -133,7 +134,48 @@ public class ContinuousMedian {
         public static Boolean MIN_HEAP_FUNC(Integer a, Integer b) {
             return a < b;
         }
+
+        // Solution 2: using PriorityQueue
+      /*  double median = 0;
+
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> a - b);
+
+        public void insert(int number) {
+            // Write your code here.
+            if (maxHeap.size() == 0 || maxHeap.peek() > number) {
+                maxHeap.offer(number);
+            } else {
+                minHeap.offer(number);
+            }
+            reBalance();
+            updateMedian();
+        }
+
+        public void reBalance() {
+            if (maxHeap.size() - minHeap.size() == 2) {
+                minHeap.offer(maxHeap.poll());
+            } else if (minHeap.size() - maxHeap.size() == 2) {
+                maxHeap.offer(minHeap.poll());
+            }
+        }
+
+        public void updateMedian() {
+            if (maxHeap.size() == minHeap.size()) {
+                median = ((double) maxHeap.peek() + (double) minHeap.peek()) / 2;
+            } else if (maxHeap.size() > minHeap.size()) {
+                median = maxHeap.peek();
+            } else {
+                median = minHeap.peek();
+            }
+        }
+
+        public double getMedian() {
+            return median;
+        }*/
     }
+
+
 
 
 }

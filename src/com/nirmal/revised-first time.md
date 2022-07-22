@@ -42,3 +42,32 @@
     * find slope by using gcd(the greatest common divisor). then rise=slope[0], run=slope[1];
     * Now make ket using rise and run and store it in map and out side the second for loop find the currentMax
     * and store maxPointsInALine = Math.max(currentMax, maxPointsInALine);
+
+- [x] [63. Unique Paths II](https://leetcode.com/problems/unique-paths-ii/)
+  ➡ [Reference](https://www.youtube.com/watch?v=nZSXWXzn1aM)
+    * Its not that complex. Basic fundamental logic is for each position find how many ways are there to reach.And at
+      the end you will have value for reaching the bottom right position.
+    * Find the ways to reach for first column and row values in if condition
+    * and then using these values you can get other values position obstacleGrid[i][j] = obstacleGrid[i - 1][j] +
+      obstacleGrid[i][j - 1];
+  ```
+  if (obstacleGrid[i][j] == 1 ||
+      (i != 0 && obstacleGrid[i - 1][j] == 0) || (j != 0 && obstacleGrid[i][j - 1] == 0)) {
+      obstacleGrid[i][j] = 0;
+      } else {
+      obstacleGrid[i][j] = 1;
+      }
+  ```
+- [x] [disk-stacking](https://www.algoexpert.io/questions/disk-stacking)
+    * Its not that complex, but just that simple logic u need to remember.
+    * Sort the array based on height. disks.sort((disk1, disk2) -> disk1[2].compareTo(disk2[2]));
+    * Create height array fill with all disk initial height.
+    * now iterate and store the maxHeight if (heights[i] <= heights[j] + currentDisk[2]) in height array if condition
+      satisfies.
+    * and also you need to store last max height index sequences[i] = j;
+    * and while building sequence you need to use sequences array.
+- [x] [maximize-expression](https://www.algoexpert.io/questions/maximize-expression)
+    * Again a simple problem which looks complex ,but post explanation it looks awsome.
+    * You just need to count the last maximum value while iterating through the array.
+    * Since its a-b+c-d ,4 expression ,so you need to do in 4 for loop to find out last expression max value for 4
+      different expression
